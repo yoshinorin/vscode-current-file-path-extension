@@ -1,6 +1,6 @@
 'use strict';
 
-import {StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
+import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
 
 export class AbsolutePath {
 
