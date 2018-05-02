@@ -10,9 +10,11 @@ export class AbsolutePath {
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
 
     constructor() {
-        let editor = window.activeTextEditor;
         this._config = workspace.getConfiguration("absolutepath");
+    }
 
+    public display() {
+        let editor = window.activeTextEditor;
         if (!editor) {
             this._statusBarItem.hide();
             return;
@@ -20,6 +22,7 @@ export class AbsolutePath {
 
         this._unixLikePath = editor.document.uri.fsPath.replace(/\\/g, "/");
         this._windowsLikePath = editor.document.uri.fsPath.replace(/\//g, "\\");
+
         if (this.isUnixLike) {
             this._statusBarItem.text = this._unixLikePath;
         } else {
