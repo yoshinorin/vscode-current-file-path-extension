@@ -24,7 +24,7 @@ export class AbsolutePath {
         this._unixLikePath = editor.document.uri.fsPath.replace(/\\/g, "/");
         this._windowsLikePath = editor.document.uri.fsPath.replace(/\//g, "\\");
 
-        if (this.isUnixLike) {
+        if (this.isUnixLike()) {
             this._statusBarItem.text = this._unixLikePath;
         } else {
             this._statusBarItem.text = this._windowsLikePath;
