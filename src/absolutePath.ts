@@ -11,6 +11,7 @@ export class AbsolutePath {
 
     constructor() {
         this._config = workspace.getConfiguration("absolutepath");
+        this.display();
     }
 
     public display() {
