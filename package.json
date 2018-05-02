@@ -14,6 +14,24 @@
     "*"
   ],
   "main": "./out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Absolute path extention configurations",
+      "properties": {
+        "absolutepath.pathType": {
+          "type": "string",
+          "default": "unix",
+          "enum": [
+            "unix",
+            "windows"
+          ],
+          "description": "Specify path type. Unix like or Windows like.",
+          "scope": "window"
+        }
+      }
+    }
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
