@@ -1,16 +1,17 @@
 'use strict';
 
-import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
+import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
+import { Config } from './config';
 
 export class AbsolutePath {
 
-    private _config: any;
+    private _config: Config;
     private _unixLikePath: string = "";
     private _windowsLikePath: string = "";
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
 
-    constructor() {
-        this._config = workspace.getConfiguration("absolutepath");
+    constructor(config: Config) {
+        this._config = config;
         this.display();
     }
 
@@ -33,8 +34,7 @@ export class AbsolutePath {
     }
 
     private isUnixLike(): boolean {
-        //TODO: Use enum
-        if (this._config.pathType === "unix") {
+        if (this._config.pathType === this._config.SelectablePathType.UNIX) {
             return true;
         }
         return false;
