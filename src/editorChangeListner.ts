@@ -3,7 +3,7 @@
 import { AbsolutePath } from './absolutePath';
 import { Disposable, window } from 'vscode';
 
-export class ChangeEditorListner {
+export class EditorChangeListner {
 
     private _absolutePath: AbsolutePath;
     private _disposable: Disposable;
