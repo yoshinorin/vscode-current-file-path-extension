@@ -16,7 +16,7 @@ export class EditorChangeListner {
         this._absolutePath = absolutePath;
 
         let subscriptions: Disposable[] = [];
-        window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions)
+        window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
         this._disposable = Disposable.from(...subscriptions);
     }
 
