@@ -19,7 +19,7 @@ export class Config {
     constructor() {
         try {
             this._config = workspace.getConfiguration("absolutepath");
-            this._pathType = this._config._pathType;
+            this._pathType = this._config.pathType;
         } catch (ex) {
             window.showErrorMessage(ex.message);
         }
