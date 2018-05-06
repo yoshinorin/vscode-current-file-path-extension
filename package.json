@@ -19,14 +19,14 @@
       "type": "object",
       "title": "Absolute path extention configurations",
       "properties": {
-        "absolutepath.pathType": {
+        "absolutepath.defaultPathStyle": {
           "type": "string",
           "default": "unix",
           "enum": [
             "unix",
             "windows"
           ],
-          "description": "Specify path type. Unix like or Windows like.",
+          "description": "Specify default path style. Unix like or Windows like.",
           "scope": "window"
         }
       }

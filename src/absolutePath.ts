@@ -34,7 +34,7 @@ export class AbsolutePath {
     }
 
     private isUnixLike(): boolean {
-        if (this._config.pathType === this._config.SelectablePathType.UNIX) {
+        if (this._config.defaultPathStyle === this._config.PathStyles.UNIX) {
             return true;
         }
         return false;

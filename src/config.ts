@@ -6,12 +6,12 @@ export class Config {
 
     private _config : any;
 
-    private _pathType : string = "";
-    public get pathType() : string {
-        return this._pathType;
+    private _defaultPathStyle : string = "";
+    public get defaultPathStyle() : string {
+        return this._defaultPathStyle;
     }
 
-    public SelectablePathType = {
+    public PathStyles = {
         UNIX: "unix",
         WINDOWS: "windows",
     }
@@ -19,7 +19,7 @@ export class Config {
     constructor() {
         try {
             this._config = workspace.getConfiguration("absolutepath");
-            this._pathType = this._config.pathType;
+            this._defaultPathStyle = this._config.defaultPathStyle;
         } catch (ex) {
             window.showErrorMessage(ex.message);
         }
