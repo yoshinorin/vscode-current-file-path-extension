@@ -40,10 +40,16 @@ export class QuickPicker {
         });
     }
 
-    public async show() {
-       let selected = await window.showQuickPick(this._pickItems, {
+    public async show(): Promise<Number> {
+       let selectedAction = await window.showQuickPick(this._pickItems, {
            placeHolder: "Select Menu"
        });
+
+       if (!selectedAction) {
+           return QuickPickerAction.noAction;
+       }
+
+       return selectedAction.id;
     }
 
 }
