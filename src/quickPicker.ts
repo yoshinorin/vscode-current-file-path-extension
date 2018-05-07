@@ -6,7 +6,7 @@ interface MenuQuickPickItem extends QuickPickItem {
     id: QuickPickerAction;
 }
 
-enum QuickPickerAction {
+export enum QuickPickerAction {
     noAction,
     viewUnixStyle,
     viewWindowsStyle,
