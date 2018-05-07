@@ -8,6 +8,7 @@ export class AbsolutePath {
 
     private _config: Config;
     private _quickPicker: QuickPicker;
+    private _currentStyle: string = this._config.defaultPathStyle;
     private _unixLikePath: string = "";
     private _windowsLikePath: string = "";
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
@@ -43,7 +44,7 @@ export class AbsolutePath {
     }
 
     private isUnixLike(): boolean {
-        if (this._config.defaultPathStyle === this._config.PathStyles.UNIX) {
+        if (this._currentStyle === this._config.PathStyles.UNIX) {
             return true;
         }
         return false;
