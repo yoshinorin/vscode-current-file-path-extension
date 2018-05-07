@@ -40,8 +40,10 @@ export class QuickPicker {
         });
     }
 
-    public show() {
-        window.showQuickPick(this._pickItems);
+    public async show() {
+       let selected = await window.showQuickPick(this._pickItems, {
+           placeHolder: "Select Menu"
+       });
     }
 
 }
