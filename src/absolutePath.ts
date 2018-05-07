@@ -12,6 +12,7 @@ export class AbsolutePath {
 
     constructor() {
         this._config = new Config();
+        this._statusBarItem.tooltip = "Show Menus";
         this.display();
     }
 
