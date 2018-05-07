@@ -30,7 +30,13 @@
           "scope": "window"
         }
       }
-    }
+    },
+    "commands":[
+      {
+        "command": "absolutepath.showQuickPicker",
+        "title": "Absolute Path: Open Menus"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

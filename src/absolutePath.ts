@@ -2,17 +2,21 @@
 
 import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
 import { Config } from './config';
+import { QuickPicker } from './quickPicker';
 
 export class AbsolutePath {
 
     private _config: Config;
+    private _quickPicker: QuickPicker;
     private _unixLikePath: string = "";
     private _windowsLikePath: string = "";
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
 
     constructor() {
         this._config = new Config();
+        this._quickPicker = new QuickPicker();
         this._statusBarItem.tooltip = "Show Menus";
+        this._statusBarItem.command = 'absolutepath.showQuickPicker';
         this.display();
     }
 
@@ -32,6 +36,10 @@ export class AbsolutePath {
             this._statusBarItem.text = this._windowsLikePath;
         }
         this._statusBarItem.show();
+    }
+
+    public showQuickPicker() {
+        this._quickPicker.show();
     }
 
     private isUnixLike(): boolean {
