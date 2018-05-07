@@ -10,8 +10,8 @@ export class AbsolutePath {
     private _windowsLikePath: string = "";
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
 
-    constructor(config: Config) {
-        this._config = config;
+    constructor() {
+        this._config = new Config();
         this.display();
     }
 
