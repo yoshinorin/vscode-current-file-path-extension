@@ -7,6 +7,7 @@ interface MenuQuickPickItem extends QuickPickItem {
 }
 
 enum QuickPickerAction {
+    noAction,
     viewUnixStyle,
     viewWindowsStyle,
     copy,
