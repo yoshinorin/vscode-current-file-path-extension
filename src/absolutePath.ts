@@ -8,7 +8,7 @@ export class AbsolutePath {
 
     private _config: Config;
     private _quickPicker: QuickPicker;
-    private _currentStyle: string = this._config.defaultPathStyle;
+    private _currentStyle: string = "";
     private _unixLikePath: string = "";
     private _windowsLikePath: string = "";
     private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
@@ -16,6 +16,7 @@ export class AbsolutePath {
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
+        this._currentStyle = this._config.defaultPathStyle;
         this._statusBarItem.tooltip = "Show Menus";
         this._statusBarItem.command = 'absolutepath.showQuickPicker';
         this.display();
