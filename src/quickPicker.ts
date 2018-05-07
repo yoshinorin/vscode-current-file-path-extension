@@ -19,6 +19,10 @@ export class QuickPicker {
             label: "COPY",
             detail: "Copy a current file full path.",
         });
+        this._pickItems.push({
+            label: "Open with Explorer",
+            detail: "Open a current file with Explorer.",
+        });
     }
 
     public show() {
