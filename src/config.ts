@@ -14,7 +14,7 @@ export class Config {
     public PathStyles = {
         UNIX: "unix",
         WINDOWS: "windows",
-    }
+    };
 
     constructor() {
         try {
