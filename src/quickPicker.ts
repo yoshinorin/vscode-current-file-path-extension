@@ -10,8 +10,7 @@ export enum QuickPickerAction {
     noAction,
     viewUnixStyle,
     viewWindowsStyle,
-    copy,
-    openWithExplorer
+    copy
 }
 
 export class QuickPicker {
@@ -33,11 +32,6 @@ export class QuickPicker {
             id: QuickPickerAction.copy,
             label: "COPY",
             detail: "Copy a current file full path.",
-        });
-        this._pickItems.push({
-            id: QuickPickerAction.openWithExplorer,
-            label: "Open with Explorer",
-            detail: "Open a current file with Explorer.",
         });
     }
 
