@@ -9,7 +9,7 @@ export function activate(context: ExtensionContext) {
     let absolutePath = new AbsolutePath();
     let listner = new EditorChangeListner(absolutePath);
 
-    let disposable = commands.registerCommand('absolutepath.showQuickPicker', () => {
+    let disposable = commands.registerCommand('absolutePath.showQuickPicker', () => {
         absolutePath.showQuickPicker();
     });
 

@@ -13,7 +13,7 @@ export class Config {
 
     constructor() {
         try {
-            this._config = workspace.getConfiguration("absolutepath");
+            this._config = workspace.getConfiguration("absolutePath");
             this._defaultPathStyle = this._config.defaultPathStyle;
         } catch (ex) {
             window.showErrorMessage(ex.message);

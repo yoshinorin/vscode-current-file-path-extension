@@ -18,7 +18,7 @@
       "type": "object",
       "title": "Absolute path extention configurations",
       "properties": {
-        "absolutepath.defaultPathStyle": {
+        "absolutePath.defaultPathStyle": {
           "type": "string",
           "default": "unix",
           "enum": [
@@ -32,7 +32,7 @@
     },
     "commands": [
       {
-        "command": "absolutepath.showQuickPicker",
+        "command": "absolutePath.showQuickPicker",
         "title": "Absolute Path: Open Menus"
       }
     ]

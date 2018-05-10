@@ -19,7 +19,7 @@ export class AbsolutePath {
         this._quickPicker = new QuickPicker();
         this._currentStyle = this._config.defaultPathStyle;
         this._statusBarItem.tooltip = "Show Menus";
-        this._statusBarItem.command = 'absolutepath.showQuickPicker';
+        this._statusBarItem.command = 'absolutePath.showQuickPicker';
         this.display();
     }
 
