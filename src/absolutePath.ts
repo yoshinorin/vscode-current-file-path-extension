@@ -53,7 +53,7 @@ export class AbsolutePath {
     }
 
     public executeQuickPickerAction() {
-        this._quickPicker.getActionId().then((actionId) => {
+        this._quickPicker.getActionId(this.currentStyle).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
                     this._currentStyle = PathStyles.UNIX;
