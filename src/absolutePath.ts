@@ -34,7 +34,7 @@ export class AbsolutePath {
         this._quickPicker = new QuickPicker();
         this._currentStyle = this._config.defaultPathStyle;
         this._statusBarItem.tooltip = "Show Menus";
-        this._statusBarItem.command = 'absolutePath.showQuickPicker';
+        this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
         this.display();
     }
 
@@ -52,7 +52,7 @@ export class AbsolutePath {
         this._statusBarItem.show();
     }
 
-    public showQuickPicker() {
+    public executeQuickPickerAction() {
         this._quickPicker.getActionId().then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:

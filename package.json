@@ -32,7 +32,7 @@
     },
     "commands": [
       {
-        "command": "absolutePath.showQuickPicker",
+        "command": "absolutePath.executeQuickPickerAction",
         "title": "Absolute Path: Open Menus"
       }
     ]
