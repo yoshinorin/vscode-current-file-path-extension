@@ -4,6 +4,7 @@ import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
 import { Config } from './config';
 import { QuickPicker, QuickPickerAction } from './quickPicker';
 import { PathStyles } from './utils/pathStyles';
+const clipboardy = require('clipboardy');
 
 export class AbsolutePath {
 
@@ -53,10 +54,15 @@ export class AbsolutePath {
 
     public showQuickPicker() {
         this._quickPicker.getActionId().then((actionId) => {
-            //TODO: Implements actions.
-        });
-    }
-
+            switch (actionId) {
+                case QuickPickerAction.viewUnixStyle:
+                    this._currentStyle = PathStyles.UNIX;
+                    this._statusBarItem.text = this.currentPath;
+                case QuickPickerAction.viewWindowsStyle:
+                    this._currentStyle = PathStyles.WINDOWS;
+                    this._statusBarItem.text = this.currentPath;
+                case QuickPickerAction.copy:
+                    clipboardy.writeSync(this.currentPath);
                 default:
                     return;
             }
