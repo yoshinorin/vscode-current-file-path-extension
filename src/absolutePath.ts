@@ -41,7 +41,9 @@ export class AbsolutePath {
     }
 
     public showQuickPicker() {
-        this._quickPicker.getActionId();
+        this._quickPicker.getActionId().then((actionId) => {
+            //TODO: Implements actions.
+        });
     }
 
     private isUnixLike(): boolean {
