@@ -2,7 +2,7 @@
 
 import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
 import { Config } from './config';
-import { QuickPicker } from './quickPicker';
+import { QuickPicker, QuickPickerAction } from './quickPicker';
 import { PathStyles } from './utils/pathStyles';
 
 export class AbsolutePath {
