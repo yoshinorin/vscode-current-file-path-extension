@@ -51,5 +51,8 @@
     "typescript": "^2.6.1",
     "vsce": "^1.40.0",
     "vscode": "^1.1.17"
+  },
+  "dependencies": {
+    "clipboardy": "^1.2.3"
   }
 }
