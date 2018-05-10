@@ -41,7 +41,7 @@ export class AbsolutePath {
     }
 
     public showQuickPicker() {
-        this._quickPicker.show();
+        this._quickPicker.getActionId();
     }
 
     private isUnixLike(): boolean {

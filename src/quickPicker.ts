@@ -41,7 +41,7 @@ export class QuickPicker {
         });
     }
 
-    public async show(): Promise<Number> {
+    public async getActionId(): Promise<Number> {
        let selectedAction = await window.showQuickPick(this._pickItems, {
            placeHolder: "Select Menu"
        });
