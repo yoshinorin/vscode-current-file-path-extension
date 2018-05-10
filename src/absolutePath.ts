@@ -58,9 +58,11 @@ export class AbsolutePath {
                 case QuickPickerAction.viewUnixStyle:
                     this._currentStyle = PathStyles.UNIX;
                     this._statusBarItem.text = this.currentPath;
+                    return;
                 case QuickPickerAction.viewWindowsStyle:
                     this._currentStyle = PathStyles.WINDOWS;
                     this._statusBarItem.text = this.currentPath;
+                    return;
                 case QuickPickerAction.copy:
                     clipboardy.writeSync(this.currentPath);
                 default:
