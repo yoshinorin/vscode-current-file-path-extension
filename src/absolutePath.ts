@@ -1,7 +1,7 @@
 'use strict';
 
 import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
-import { Config } from './config';
+import { Config, PathStyles } from './config';
 import { QuickPicker } from './quickPicker';
 
 export class AbsolutePath {
@@ -47,7 +47,7 @@ export class AbsolutePath {
     }
 
     private isUnixLike(): boolean {
-        if (this._currentStyle === this._config.PathStyles.UNIX) {
+        if (this._currentStyle === PathStyles.UNIX) {
             return true;
         }
         return false;
