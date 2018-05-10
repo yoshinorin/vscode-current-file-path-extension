@@ -1,8 +1,9 @@
 'use strict';
 
 import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
-import { Config, PathStyles } from './config';
+import { Config } from './config';
 import { QuickPicker } from './quickPicker';
+import { PathStyles } from './utils/pathStyles';
 
 export class AbsolutePath {
 

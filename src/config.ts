@@ -2,11 +2,6 @@
 
 import { window, workspace } from 'vscode';
 
-export const PathStyles = {
-    UNIX: "unix",
-    WINDOWS: "windows",
-};
-
 export class Config {
 
     private _config : any;
