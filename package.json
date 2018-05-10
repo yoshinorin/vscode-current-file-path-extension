@@ -31,7 +31,7 @@
         }
       }
     },
-    "commands":[
+    "commands": [
       {
         "command": "absolutepath.showQuickPicker",
         "title": "Absolute Path: Open Menus"
@@ -50,6 +50,7 @@
     "@types/node": "^7.0.62",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1",
+    "typings": "^2.1.1",
     "vscode": "^1.1.16"
   }
 }
