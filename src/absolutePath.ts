@@ -28,7 +28,7 @@ export class AbsolutePath {
         return this._unixStylePath;
     }
     private set unixStylePath(path: string) {
-        this._unixStylePath = path.replace(/\\/g, "/");
+        this._unixStylePath = this.toUnixStyle(path);
     }
 
     private _windowsStylePath: string = "";
@@ -36,7 +36,7 @@ export class AbsolutePath {
         return this._windowsStylePath;
     }
     private set windowsStylePath(path: string) {
-        this._windowsStylePath = path.replace(/\//g, "\\");
+        this._windowsStylePath = this.toWindowsStyle(path);
     }
 
     private _currentStyle: string;
@@ -65,6 +65,14 @@ export class AbsolutePath {
         this._statusBarItem.tooltip = "Open Menus";
         this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
         this.display();
+    }
+
+    private toUnixStyle(path: string): string {
+        return path.replace(/\\/g, "/");
+    }
+
+    private toWindowsStyle(path: string): string {
+        return path.replace(/\//g, "\\");
     }
 
     public display() {
