@@ -34,7 +34,7 @@ export class AbsolutePath {
         this._quickPicker = new QuickPicker();
         this._currentStyle = this._config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this._config.priorityInStatusBar);
-        this._statusBarItem.tooltip = "Show Menus";
+        this._statusBarItem.tooltip = "Open Menus";
         this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
         this.display();
     }
