@@ -23,20 +23,6 @@ export class AbsolutePath {
         return this._statusBarItem;
     }
 
-    private _unixStylePath: string = "";
-    private get unixStylePath(): string {
-        return this._unixStylePath;
-    }
-    private set unixStylePath(path: string) {
-        this._unixStylePath = this.toUnixStyle(path);
-    }
-
-    private _windowsStylePath: string = "";
-    private get windowsStylePath(): string {
-        return this._windowsStylePath;
-    }
-    private set windowsStylePath(path: string) {
-        this._windowsStylePath = this.toWindowsStyle(path);
     }
 
     private _currentStyle: string;
@@ -50,11 +36,15 @@ export class AbsolutePath {
         this._currentStyle = style;
     }
 
+    private _currentPath: string = "";
     private get currentPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this.unixStylePath;
+            return this.toUnixStyle(this._currentPath);
         }
-        return this.windowsStylePath;
+        return this.toWindowsStyle(this._currentPath);
+    }
+    private set currentPath(path: string) {
+        this._currentPath = path;
     }
 
     constructor() {
@@ -81,8 +71,7 @@ export class AbsolutePath {
             this.statusBarItem.hide();
             return;
         }
-        this.unixStylePath = editor.document.uri.fsPath;
-        this.windowsStylePath = editor.document.uri.fsPath;
+        this._currentPath = editor.document.uri.fsPath;
 
         this.statusBarItem.text = this.currentPath;
         this.statusBarItem.show();
