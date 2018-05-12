@@ -4,14 +4,14 @@ import { window, workspace } from 'vscode';
 
 export class Config {
 
-    private _config : any;
+    private readonly _config : any;
 
-    private _defaultPathStyle : string = "";
+    private readonly _defaultPathStyle : string = "";
     public get defaultPathStyle() : string {
         return this._defaultPathStyle;
     }
 
-    private _priorityInStatusBar: number = 0;
+    private readonly _priorityInStatusBar: number = 0;
     public get priorityInStatusBar() : number {
         return this._priorityInStatusBar;
     }
