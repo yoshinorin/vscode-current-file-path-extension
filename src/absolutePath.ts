@@ -5,6 +5,7 @@ import { Config } from './config';
 import { QuickPicker, QuickPickerAction } from './quickPicker';
 import { PathStyles } from './utils/pathStyles';
 const clipboardy = require('clipboardy');
+const pathModule = require('path');
 
 export class AbsolutePath {
 
@@ -77,7 +78,7 @@ export class AbsolutePath {
         if (wsPath === undefined) {
             this._currentFromWorkSpaceRootPath = path;
         } else {
-            this._currentFromWorkSpaceRootPath = this.workSpaceName + this.toUnixStyle(path).replace(this.toUnixStyle(wsPath), "");
+            this._currentFromWorkSpaceRootPath = pathModule.join(this.workSpaceName, this.toUnixStyle(path).replace(this.toUnixStyle(wsPath), ""));
         }
     }
 
