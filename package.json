@@ -1,13 +1,14 @@
 {
   "name": "absolute-path",
   "displayName": "Absolute Path",
-  "description": "Display absolute path of current file in StatusBar by Unix style or Windows style.",
+  "description": "Display absolute or from workspace path of current file in StatusBar by Unix style or Windows style.",
   "version": "1.0.0",
   "publisher": "YoshinoriN",
   "repository": {
     "type": "git",
     "url": "https://github.com/YoshinoriN/vscode-absolute-path"
-},
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.0.0"
   },
@@ -16,6 +17,7 @@
   ],
   "keywords": [
     "absolute path",
+    "workspace path",
     "path"
   ],
   "activationEvents": [
