@@ -12,7 +12,7 @@ export class AbsolutePath {
     private _quickPicker: QuickPicker;
     private _unixLikePath: string = "";
     private _windowsLikePath: string = "";
-    private _statusBarItem: StatusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
+    private _statusBarItem: StatusBarItem;
 
     private _currentStyle: string = "";
     public get currentStyle() : string {
@@ -33,6 +33,7 @@ export class AbsolutePath {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
         this._currentStyle = this._config.defaultPathStyle;
+        this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this._config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Show Menus";
         this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
         this.display();

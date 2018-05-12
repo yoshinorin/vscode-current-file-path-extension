@@ -18,6 +18,7 @@ TODO
 |Property|Description|Default|
 |---|---|---|
 |`absolutePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix`|
+|`absolutePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.|`0`|
 
 ## Release Notes
 

@@ -36,6 +36,12 @@
           ],
           "description": "Specify default path style. Unix like or Windows like.",
           "scope": "window"
+        },
+        "absolutePath.priorityInStatusBar": {
+          "type": "number",
+          "default": 0,
+          "description": "The priority in the statusBar. Higher values shown more to the left.",
+          "scope": "window"
         }
       }
     },
