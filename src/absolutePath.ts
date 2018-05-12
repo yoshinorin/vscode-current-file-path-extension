@@ -8,32 +8,60 @@ const clipboardy = require('clipboardy');
 
 export class AbsolutePath {
 
-    private _config: Config;
-    private _quickPicker: QuickPicker;
-    private _unixLikePath: string = "";
-    private _windowsLikePath: string = "";
-    private _statusBarItem: StatusBarItem;
+    private readonly _config: Config;
+    private get config(): Config {
+        return this._config;
+    }
 
-    private _currentStyle: string = "";
-    public get currentStyle() : string {
+    private readonly _quickPicker: QuickPicker;
+    private get quickPicker(): QuickPicker {
+        return this._quickPicker;
+    }
+
+    private readonly _statusBarItem: StatusBarItem;
+    private get statusBarItem(): StatusBarItem {
+        return this._statusBarItem;
+    }
+
+    private _unixLikePath: string = "";
+    private get unixLikePath(): string {
+        return this._unixLikePath;
+    }
+    private set unixLikePath(path: string) {
+        this._unixLikePath = path.replace(/\\/g, "/");
+    }
+
+    private _windowsLikePath: string = "";
+    private get windowsLikePath(): string {
+        return this._windowsLikePath;
+    }
+    private set windowsLikePath(path: string) {
+        this._windowsLikePath = path.replace(/\//g, "\\");
+    }
+
+    private _currentStyle: string;
+    private get currentStyle(): string {
         if (this._currentStyle === PathStyles.UNIX) {
             return PathStyles.UNIX;
         }
         return PathStyles.WINDOWS;
     }
+    private set currentStyle(style: string) {
+        this._currentStyle = style;
+    }
 
-    public get currentPath() : string {
+    private get currentPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this._unixLikePath;
+            return this.unixLikePath;
         }
-        return this._windowsLikePath;
+        return this.windowsLikePath;
     }
 
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
-        this._currentStyle = this._config.defaultPathStyle;
-        this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this._config.priorityInStatusBar);
+        this._currentStyle = this.config.defaultPathStyle;
+        this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
         this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
         this.display();
@@ -42,27 +70,27 @@ export class AbsolutePath {
     public display() {
         let editor = window.activeTextEditor;
         if (!editor) {
-            this._statusBarItem.hide();
+            this.statusBarItem.hide();
             return;
         }
 
-        this._unixLikePath = editor.document.uri.fsPath.replace(/\\/g, "/");
-        this._windowsLikePath = editor.document.uri.fsPath.replace(/\//g, "\\");
+        this.unixLikePath = editor.document.uri.fsPath;
+        this.windowsLikePath = editor.document.uri.fsPath;
 
-        this._statusBarItem.text = this.currentPath;
-        this._statusBarItem.show();
+        this.statusBarItem.text = this.currentPath;
+        this.statusBarItem.show();
     }
 
     public executeQuickPickerAction() {
-        this._quickPicker.getActionId(this.currentStyle).then((actionId) => {
+        this.quickPicker.getActionId(this.currentStyle).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
-                    this._currentStyle = PathStyles.UNIX;
-                    this._statusBarItem.text = this.currentPath;
+                    this.currentStyle = PathStyles.UNIX;
+                    this.statusBarItem.text = this.currentPath;
                     return;
                 case QuickPickerAction.viewWindowsStyle:
-                    this._currentStyle = PathStyles.WINDOWS;
-                    this._statusBarItem.text = this.currentPath;
+                    this.currentStyle = PathStyles.WINDOWS;
+                    this.statusBarItem.text = this.currentPath;
                     return;
                 case QuickPickerAction.copy:
                     clipboardy.writeSync(this.currentPath);
@@ -73,6 +101,6 @@ export class AbsolutePath {
     }
 
     dispose() {
-        this._statusBarItem.dispose();
+        this.statusBarItem.dispose();
     }
 }
