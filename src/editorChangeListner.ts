@@ -9,7 +9,7 @@ export class EditorChangeListner {
     private _disposable: Disposable;
 
     private _onEvent() {
-        this._absolutePath.display();
+        this._absolutePath.update();
     }
 
     constructor (absolutePath: AbsolutePath) {

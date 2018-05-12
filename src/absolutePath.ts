@@ -89,7 +89,7 @@ export class AbsolutePath {
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
         this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
-        this.display();
+        this.update();
     }
 
     private toUnixStyle(path: string): string {
@@ -108,7 +108,7 @@ export class AbsolutePath {
         }
     }
 
-    public display() {
+    public update() {
         let editor = window.activeTextEditor;
         if (!editor) {
             this.statusBarItem.hide();
