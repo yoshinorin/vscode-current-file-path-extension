@@ -23,20 +23,20 @@ export class AbsolutePath {
         return this._statusBarItem;
     }
 
-    private _unixLikePath: string = "";
-    private get unixLikePath(): string {
-        return this._unixLikePath;
+    private _unixStylePath: string = "";
+    private get unixStylePath(): string {
+        return this._unixStylePath;
     }
-    private set unixLikePath(path: string) {
-        this._unixLikePath = path.replace(/\\/g, "/");
+    private set unixStylePath(path: string) {
+        this._unixStylePath = path.replace(/\\/g, "/");
     }
 
-    private _windowsLikePath: string = "";
-    private get windowsLikePath(): string {
-        return this._windowsLikePath;
+    private _windowsStylePath: string = "";
+    private get windowsStylePath(): string {
+        return this._windowsStylePath;
     }
-    private set windowsLikePath(path: string) {
-        this._windowsLikePath = path.replace(/\//g, "\\");
+    private set windowsStylePath(path: string) {
+        this._windowsStylePath = path.replace(/\//g, "\\");
     }
 
     private _currentStyle: string;
@@ -52,9 +52,9 @@ export class AbsolutePath {
 
     private get currentPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this.unixLikePath;
+            return this.unixStylePath;
         }
-        return this.windowsLikePath;
+        return this.windowsStylePath;
     }
 
     constructor() {
@@ -73,9 +73,8 @@ export class AbsolutePath {
             this.statusBarItem.hide();
             return;
         }
-
-        this.unixLikePath = editor.document.uri.fsPath;
-        this.windowsLikePath = editor.document.uri.fsPath;
+        this.unixStylePath = editor.document.uri.fsPath;
+        this.windowsStylePath = editor.document.uri.fsPath;
 
         this.statusBarItem.text = this.currentPath;
         this.statusBarItem.show();
