@@ -1,17 +1,14 @@
 # Absolute Path
 
-This extension display absolute path of current file in StatusBar by Unix style or Windows style.
+This extension display absolute path of a current file in the StatusBar by Unix style or Windows style.
 
 ## Features
 
-* Display current file in StatusBar.
+* Display a current file in the StatusBar.
+* Can select shown from workspace root path or not using by QuickPick.
 * Can select Unix or Windows style.
 * Can change Unix or Windows style using by QuickPick.
-* Can copy a current file full path.
- 
-## Requirements
-
-TODO
+* Copy a current file full path to clipboard.
 
 ## Extension Settings
 
