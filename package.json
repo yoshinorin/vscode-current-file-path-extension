@@ -42,6 +42,12 @@
           "default": 0,
           "description": "The priority in the statusBar. Higher values shown more to the left.",
           "scope": "window"
+        },
+        "absolutePath.isFromWorkSpaceRoot": {
+          "type": "boolean",
+          "default": false,
+          "description": "Shown from workspace root path or not.",
+          "scope": "window"
         }
       }
     },

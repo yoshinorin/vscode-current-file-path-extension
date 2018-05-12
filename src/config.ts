@@ -16,11 +16,17 @@ export class Config {
         return this._priorityInStatusBar;
     }
 
+    private readonly _isFromWorkSpaceRoot: boolean = false;
+    public get isFromWorkSpaceRoot(): boolean {
+        return this._isFromWorkSpaceRoot;
+    }
+
     constructor() {
         try {
             this._config = workspace.getConfiguration("absolutePath");
             this._defaultPathStyle = this._config.defaultPathStyle;
             this._priorityInStatusBar = this._config.priorityInStatusBar;
+            this._isFromWorkSpaceRoot = this._config.isFromWorkSpaceRoot;
         } catch (ex) {
             window.showErrorMessage(ex.message);
         }

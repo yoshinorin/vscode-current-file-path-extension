@@ -1,6 +1,6 @@
 'use strict';
 
-import { StatusBarAlignment, StatusBarItem, window } from 'vscode';
+import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
 import { Config } from './config';
 import { QuickPicker, QuickPickerAction } from './quickPicker';
 import { PathStyles } from './utils/pathStyles';
@@ -23,6 +23,16 @@ export class AbsolutePath {
         return this._statusBarItem;
     }
 
+    private get isWorkSpace(): boolean {
+        return workspace.rootPath !== undefined;
+    }
+
+    private get workSpaceRootPath(): undefined | string {
+        return workspace.rootPath;
+    }
+
+    private get workSpaceName(): undefined | string {
+        return workspace.name;
     }
 
     private _currentStyle: string;
@@ -36,20 +46,45 @@ export class AbsolutePath {
         this._currentStyle = style;
     }
 
-    private _currentPath: string = "";
-    private get currentPath(): string {
-        if (this.currentStyle === PathStyles.UNIX) {
-            return this.toUnixStyle(this._currentPath);
-        }
-        return this.toWindowsStyle(this._currentPath);
+    private _isFromWorkSpaceRoot: boolean;
+    private get isFromWorkSpaceRoot(): boolean {
+        return this._isFromWorkSpaceRoot;
     }
-    private set currentPath(path: string) {
-        this._currentPath = path;
+    private set isFromWorkSpaceRoot(isFromWorkSpaceRoot: boolean) {
+        this._isFromWorkSpaceRoot = isFromWorkSpaceRoot;
+    }
+
+    private _currentFromSystemRootPath: string = "";
+    private get currentFromSystemRootPath(): string {
+        if (this.currentStyle === PathStyles.UNIX) {
+            return this.toUnixStyle(this._currentFromSystemRootPath);
+        }
+        return this.toWindowsStyle(this._currentFromSystemRootPath);
+    }
+    private set currentFromSystemRootPath(path: string) {
+        this._currentFromSystemRootPath = path;
+    }
+
+    private _currentFromWorkSpaceRootPath: string = "";
+    private get currentFromWorkSpaceRootPath(): string {
+        if (this.currentStyle === PathStyles.UNIX) {
+            return this.toUnixStyle(this._currentFromWorkSpaceRootPath);
+        }
+        return this.toWindowsStyle(this._currentFromWorkSpaceRootPath);
+    }
+    private set currentFromWorkSpaceRootPath(path: string) {
+        let wsPath = this.workSpaceRootPath;
+        if (wsPath === undefined) {
+            this._currentFromWorkSpaceRootPath = path;
+        } else {
+            this._currentFromWorkSpaceRootPath = this.workSpaceName + this.toUnixStyle(path).replace(this.toUnixStyle(wsPath), "");
+        }
     }
 
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
+        this._isFromWorkSpaceRoot = this.config.isFromWorkSpaceRoot;
         this._currentStyle = this.config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
@@ -65,31 +100,50 @@ export class AbsolutePath {
         return path.replace(/\//g, "\\");
     }
 
+    private updateStatusBar() {
+        if (this.isFromWorkSpaceRoot) {
+            this.statusBarItem.text = this.currentFromWorkSpaceRootPath;
+        } else {
+            this.statusBarItem.text = this.currentFromSystemRootPath;
+        }
+    }
+
     public display() {
         let editor = window.activeTextEditor;
         if (!editor) {
             this.statusBarItem.hide();
             return;
         }
-        this._currentPath = editor.document.uri.fsPath;
 
-        this.statusBarItem.text = this.currentPath;
+        this.currentFromSystemRootPath = editor.document.uri.fsPath;
+        this.currentFromWorkSpaceRootPath = editor.document.uri.fsPath;
+
+        this.updateStatusBar();
         this.statusBarItem.show();
     }
 
     public executeQuickPickerAction() {
-        this.quickPicker.getActionId(this.currentStyle).then((actionId) => {
+        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.isFromWorkSpaceRoot).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
                     this.currentStyle = PathStyles.UNIX;
-                    this.statusBarItem.text = this.currentPath;
+                    this.updateStatusBar();
                     return;
                 case QuickPickerAction.viewWindowsStyle:
                     this.currentStyle = PathStyles.WINDOWS;
-                    this.statusBarItem.text = this.currentPath;
+                    this.updateStatusBar();
+                    return;
+                case QuickPickerAction.viewFromSystemRoot:
+                    this.isFromWorkSpaceRoot = false;
+                    this.updateStatusBar();
+                    return;
+                case QuickPickerAction.viewFromWorkSpaceRoot:
+                    this.isFromWorkSpaceRoot = true;
+                    this.updateStatusBar();
                     return;
                 case QuickPickerAction.copy:
-                    clipboardy.writeSync(this.currentPath);
+                    let path = this.isFromWorkSpaceRoot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
+                    clipboardy.writeSync(path);
                 default:
                     return;
             }

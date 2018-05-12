@@ -11,6 +11,8 @@ export enum QuickPickerAction {
     noAction,
     viewUnixStyle,
     viewWindowsStyle,
+    viewFromSystemRoot,
+    viewFromWorkSpaceRoot,
     copy
 }
 
@@ -22,7 +24,7 @@ export class QuickPicker {
 
     }
 
-    public async getActionId(currentStyle: string): Promise<Number> {
+    public async getActionId(currentStyle: string, isWorkSpace: boolean, isFromWorkSpaceRoot: boolean): Promise<Number> {
 
         this._pickItems = [];
 
@@ -38,6 +40,22 @@ export class QuickPicker {
                 label: "UNIX style",
                 detail: "View on UNIX style path.",
             });
+        }
+
+        if (isWorkSpace) {
+            if (isFromWorkSpaceRoot) {
+                this._pickItems.push({
+                    id: QuickPickerAction.viewFromSystemRoot,
+                    label: "From system root",
+                    detail: "View from system root path.",
+                });
+            } else {
+                this._pickItems.push({
+                    id: QuickPickerAction.viewFromWorkSpaceRoot,
+                    label: "From workspace root",
+                    detail: "View from workspace root path.",
+                });
+            }
         }
 
         this._pickItems.push({
