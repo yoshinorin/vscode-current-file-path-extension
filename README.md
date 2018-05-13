@@ -16,7 +16,7 @@ This extension display current file's path (from absolute or workspace root path
 
 ## Images
 
-TODO
+![](https://raw.githubusercontent.com/YoshinoriN/vscode-absolute-path/master/images/image.gif)
 
 ## Extension Settings
 
@@ -28,10 +28,11 @@ TODO
 
 ## Requirements
 
-* Visual Studio Code x.x.x later
+* Visual Studio Code 1.18.0 later
+* Linux will probably have to install [xsel](https://linux.die.net/man/1/xsel). For example `sudo apt install xsel`
 
 ## Release Notes
 
-### 1.0.0
+### v1.0.0
 
 * Initial release
