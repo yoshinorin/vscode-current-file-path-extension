@@ -4,6 +4,10 @@ out/test/**
 out/**/*.map
 src/**
 .gitignore
+.editorconfig
 tsconfig.json
 vsc-extension-quickstart.md
 tslint.json
+images/icon.svg
+images/image.gif
+images/original_image.gif
