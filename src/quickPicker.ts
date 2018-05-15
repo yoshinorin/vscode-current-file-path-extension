@@ -61,7 +61,7 @@ export class QuickPicker {
         this._pickItems.push({
             id: QuickPickerAction.copy,
             label: "COPY",
-            detail: "Copy a current file full path.",
+            detail: "Copy a current file path to clipboard.",
         });
 
        let selectedAction = await window.showQuickPick(this._pickItems, {
