@@ -7,7 +7,7 @@ import { PathStyles } from './utils/pathStyles';
 const clipboardy = require('clipboardy');
 const pathModule = require('path');
 
-export class AbsolutePath {
+export class CurrentFile {
 
     private readonly _config: Config;
     private get config(): Config {
@@ -89,7 +89,7 @@ export class AbsolutePath {
         this._currentStyle = this.config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
-        this._statusBarItem.command = 'absolutePath.executeQuickPickerAction';
+        this._statusBarItem.command = 'currentFilePath.executeQuickPickerAction';
         this.update();
     }
 

@@ -1,12 +1,12 @@
 {
-  "name": "absolute-path",
-  "displayName": "Absolute Path",
+  "name": "current-file-path",
+  "displayName": "Current File Path",
   "description": "Display current file's path (from absolute or workspace root path) in StatusBar by Unix style or Windows style.",
   "version": "1.0.0",
   "publisher": "YoshinoriN",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YoshinoriN/vscode-absolute-path"
+    "url": "https://github.com/YoshinoriN/vscode-current-file-path-extension"
   },
   "license": "MIT",
   "engines": {
@@ -16,10 +16,8 @@
     "Other"
   ],
   "keywords": [
-    "absolute path",
-    "workspace path",
-    "current file path",
-    "copy path",
+    "copy",
+    "file",
     "path"
   ],
   "icon": "images/icon.png",
@@ -30,9 +28,9 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Absolute Path extention configurations",
+      "title": "Current File Path extention configurations",
       "properties": {
-        "absolutePath.defaultPathStyle": {
+        "currentFilePath.defaultPathStyle": {
           "type": "string",
           "default": "unix",
           "enum": [
@@ -42,13 +40,13 @@
           "description": "Specify default path style. Unix like or Windows like.",
           "scope": "window"
         },
-        "absolutePath.priorityInStatusBar": {
+        "currentFilePath.priorityInStatusBar": {
           "type": "number",
           "default": 0,
           "description": "The priority in the statusBar. Higher values shown more to the left.",
           "scope": "window"
         },
-        "absolutePath.isFromWorkSpaceRoot": {
+        "currentFilePath.isFromWorkSpaceRoot": {
           "type": "boolean",
           "default": false,
           "description": "Shown from workspace root path or not.",
@@ -58,8 +56,8 @@
     },
     "commands": [
       {
-        "command": "absolutePath.executeQuickPickerAction",
-        "title": "Absolute Path: Open Menus"
+        "command": "currentFilePath.executeQuickPickerAction",
+        "title": "Current File Path: Open Menus"
       }
     ]
   },

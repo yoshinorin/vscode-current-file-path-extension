@@ -23,7 +23,7 @@ export class Config {
 
     constructor() {
         try {
-            this._config = workspace.getConfiguration("absolutePath");
+            this._config = workspace.getConfiguration("currentFilePath");
             this._defaultPathStyle = this._config.defaultPathStyle;
             this._priorityInStatusBar = this._config.priorityInStatusBar;
             this._isFromWorkSpaceRoot = this._config.isFromWorkSpaceRoot;

@@ -1,4 +1,4 @@
-# Absolute Path
+# Visual Studio Code extension - Current File Path
 
 This extension display current file's path (from absolute or workspace root path) in StatusBar by Unix style or Windows style.
 
@@ -16,15 +16,15 @@ This extension display current file's path (from absolute or workspace root path
 
 ## Images
 
-![](https://raw.githubusercontent.com/YoshinoriN/vscode-absolute-path/master/images/image.gif)
+![](https://raw.githubusercontent.com/YoshinoriN/vscode-current-file-path-extension/master/images/image.gif)
 
 ## Extension Settings
 
 |Property|Description|Default|
 |---|---|---|
-|`absolutePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix`|
-|`absolutePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.|`0`|
-|`absolutePath.isFromWorkSpaceRoot`|Shown from workspace root path or not.|`false`|
+|`currentFilePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix`|
+|`currentFilePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.|`0`|
+|`currentFilePath.isFromWorkSpaceRoot`|Shown from workspace root path or not.|`false`|
 
 ## Requirements
 

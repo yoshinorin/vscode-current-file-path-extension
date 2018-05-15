@@ -1,19 +1,19 @@
 'use strict';
 
-import { AbsolutePath } from './absolutePath';
+import { CurrentFile } from './currentFile';
 import { Disposable, window } from 'vscode';
 
 export class EditorChangeListner {
 
-    private _absolutePath: AbsolutePath;
+    private _currentFile: CurrentFile;
     private _disposable: Disposable;
 
     private _onEvent() {
-        this._absolutePath.update();
+        this._currentFile.update();
     }
 
-    constructor (absolutePath: AbsolutePath) {
-        this._absolutePath = absolutePath;
+    constructor (currentFile: CurrentFile) {
+        this._currentFile = currentFile;
 
         let subscriptions: Disposable[] = [];
         window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
