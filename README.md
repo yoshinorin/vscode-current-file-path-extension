@@ -1,5 +1,8 @@
 # Visual Studio Code extension - Current File Path
 
+![](https://img.shields.io/badge/Release-v1.0.0-blue.svg?style=flat-square)
+![](https://img.shields.io/badge/vscode-^1.18.0-blue.svg?style=flat-square)
+
 This extension display current file's path (from absolute or workspace root path) in StatusBar by Unix style or Windows style.
 
 ## Features
