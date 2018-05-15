@@ -16,9 +16,9 @@ export class Config {
         return this._priorityInStatusBar;
     }
 
-    private readonly _isFromWorkSpaceRoot: boolean = false;
-    public get isFromWorkSpaceRoot(): boolean {
-        return this._isFromWorkSpaceRoot;
+    private readonly _fromWorkSpaceOrNot: boolean = false;
+    public get fromWorkSpaceOrNot(): boolean {
+        return this._fromWorkSpaceOrNot;
     }
 
     constructor() {
@@ -26,7 +26,7 @@ export class Config {
             this._config = workspace.getConfiguration("currentFilePath");
             this._defaultPathStyle = this._config.defaultPathStyle;
             this._priorityInStatusBar = this._config.priorityInStatusBar;
-            this._isFromWorkSpaceRoot = this._config.isFromWorkSpaceRoot;
+            this._fromWorkSpaceOrNot = this._config.fromWorkSpaceOrNot;
         } catch (ex) {
             window.showErrorMessage(ex.message);
         }

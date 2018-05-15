@@ -47,12 +47,12 @@ export class CurrentFile {
         this._currentStyle = style;
     }
 
-    private _isFromWorkSpaceRoot: boolean;
-    private get isFromWorkSpaceRoot(): boolean {
-        return this._isFromWorkSpaceRoot;
+    private _fromWorkSpaceOrNot: boolean;
+    private get fromWorkSpaceOrNot(): boolean {
+        return this._fromWorkSpaceOrNot;
     }
-    private set isFromWorkSpaceRoot(isFromWorkSpaceRoot: boolean) {
-        this._isFromWorkSpaceRoot = isFromWorkSpaceRoot;
+    private set fromWorkSpaceOrNot(fromWorkSpaceOrNot: boolean) {
+        this._fromWorkSpaceOrNot = fromWorkSpaceOrNot;
     }
 
     private _currentFromSystemRootPath: string = "";
@@ -85,7 +85,7 @@ export class CurrentFile {
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
-        this._isFromWorkSpaceRoot = this.config.isFromWorkSpaceRoot;
+        this._fromWorkSpaceOrNot = this.config.fromWorkSpaceOrNot;
         this._currentStyle = this.config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
@@ -102,7 +102,7 @@ export class CurrentFile {
     }
 
     private updateStatusBar() {
-        if (this.isFromWorkSpaceRoot) {
+        if (this.fromWorkSpaceOrNot) {
             this.statusBarItem.text = this.currentFromWorkSpaceRootPath;
         } else {
             this.statusBarItem.text = this.currentFromSystemRootPath;
@@ -124,7 +124,7 @@ export class CurrentFile {
     }
 
     public executeQuickPickerAction() {
-        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.isFromWorkSpaceRoot).then((actionId) => {
+        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.fromWorkSpaceOrNot).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
                     this.currentStyle = PathStyles.UNIX;
@@ -135,15 +135,15 @@ export class CurrentFile {
                     this.updateStatusBar();
                     return;
                 case QuickPickerAction.viewFromSystemRoot:
-                    this.isFromWorkSpaceRoot = false;
+                    this.fromWorkSpaceOrNot = false;
                     this.updateStatusBar();
                     return;
                 case QuickPickerAction.viewFromWorkSpaceRoot:
-                    this.isFromWorkSpaceRoot = true;
+                    this.fromWorkSpaceOrNot = true;
                     this.updateStatusBar();
                     return;
                 case QuickPickerAction.copy:
-                    let path = this.isFromWorkSpaceRoot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
+                    let path = this.fromWorkSpaceOrNot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
                     clipboardy.writeSync(path);
                 default:
                     return;

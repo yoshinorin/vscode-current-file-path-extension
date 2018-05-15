@@ -46,7 +46,7 @@
           "description": "The priority in the statusBar. Higher values shown more to the left.",
           "scope": "window"
         },
-        "currentFilePath.isFromWorkSpaceRoot": {
+        "currentFilePath.fromWorkSpaceOrNot": {
           "type": "boolean",
           "default": false,
           "description": "Shown from workspace root path or not.",

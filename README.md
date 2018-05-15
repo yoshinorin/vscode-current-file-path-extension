@@ -24,7 +24,7 @@ This extension display current file's path (from absolute or workspace root path
 |---|---|---|
 |`currentFilePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix`|
 |`currentFilePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.|`0`|
-|`currentFilePath.isFromWorkSpaceRoot`|Shown from workspace root path or not.|`false`|
+|`currentFilePath.fromWorkSpaceOrNot`|Shown from workspace root path or not.|`false`|
 
 ## Requirements
 

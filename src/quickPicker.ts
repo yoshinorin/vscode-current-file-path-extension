@@ -24,7 +24,7 @@ export class QuickPicker {
 
     }
 
-    public async getActionId(currentStyle: string, isWorkSpace: boolean, isFromWorkSpaceRoot: boolean): Promise<Number> {
+    public async getActionId(currentStyle: string, isWorkSpace: boolean, fromWorkSpaceOrNot: boolean): Promise<Number> {
 
         this._pickItems = [];
 
@@ -43,7 +43,7 @@ export class QuickPicker {
         }
 
         if (isWorkSpace) {
-            if (isFromWorkSpaceRoot) {
+            if (fromWorkSpaceOrNot) {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromSystemRoot,
                     label: "From system root",
