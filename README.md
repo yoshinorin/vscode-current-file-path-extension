@@ -32,7 +32,8 @@ This extension display current file's path (from absolute or workspace root path
 ## Requirements
 
 * Visual Studio Code 1.18.0 later
-* Linux will probably have to install [xsel](https://linux.die.net/man/1/xsel). For example `sudo apt install xsel`
+* Linux will probably have to install [xsel](https://linux.die.net/man/1/xsel).
+    * e.g.) Debian/Ubuntu `sudo apt install xsel`
 
 ## Release Notes
 
