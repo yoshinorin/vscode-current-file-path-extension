@@ -46,14 +46,14 @@ export class QuickPicker {
             if (fromWorkSpaceOrNot) {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromSystemRoot,
-                    label: "From system root",
-                    detail: "View from system root path.",
+                    label: "Absolute path",
+                    detail: "View from root.",
                 });
             } else {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromWorkSpaceRoot,
                     label: "From workspace root",
-                    detail: "View from workspace root path.",
+                    detail: "View from workspace root.",
                 });
             }
         }
