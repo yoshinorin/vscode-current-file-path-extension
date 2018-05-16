@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/YoshinoriN/vscode-current-file-path-extension"
   },
+  "bugs": {
+    "url": "https://github.com/YoshinoriN/vscode-current-file-path-extension/issues"
+  },
   "license": "MIT",
   "engines": {
     "vscode": "^1.18.0"
