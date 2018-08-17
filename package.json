@@ -74,11 +74,11 @@
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
-    "@types/node": "^7.0.64",
-    "tslint": "^5.10.0",
-    "typescript": "^2.6.1",
-    "vsce": "^1.40.0",
-    "vscode": "^1.1.18"
+    "@types/node": "^7.0.69",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.0",
+    "vsce": "^1.46.0",
+    "vscode": "1.1.18"
   },
   "dependencies": {
     "clipboardy": "^1.2.3"
