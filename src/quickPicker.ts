@@ -31,14 +31,14 @@ export class QuickPicker {
         if (currentStyle === PathStyles.UNIX) {
             this._pickItems.push({
                 id: QuickPickerAction.viewWindowsStyle,
+                description: "View on Windows style path.",
                 label: "Windows style",
-                detail: "View on Windows style path.",
             });
         } else {
             this._pickItems.push({
                 id: QuickPickerAction.viewUnixStyle,
+                description: "View on UNIX style path.",
                 label: "UNIX style",
-                detail: "View on UNIX style path.",
             });
         }
 
@@ -46,22 +46,22 @@ export class QuickPicker {
             if (fromWorkSpaceOrNot) {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromSystemRoot,
+                    description: "View from root.",
                     label: "Absolute path",
-                    detail: "View from root.",
                 });
             } else {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromWorkSpaceRoot,
+                    description: "View from workspace root.",
                     label: "From workspace root",
-                    detail: "View from workspace root.",
                 });
             }
         }
 
         this._pickItems.push({
             id: QuickPickerAction.copy,
+            description: "Copy a current file path to clipboard.",
             label: "COPY",
-            detail: "Copy a current file path to clipboard.",
         });
 
        let selectedAction = await window.showQuickPick(this._pickItems, {
