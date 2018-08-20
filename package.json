@@ -60,7 +60,33 @@
     "commands": [
       {
         "command": "currentFilePath.executeQuickPickerAction",
-        "title": "Current File Path: Open Menus"
+        "title": "Current File Path: Open Menus",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.viewUnixStyle",
+        "title": "Current File Path: UNIX style",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.viewWindowsStyle",
+        "title": "Current File Path: Windows style",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.viewFromSystemRoot",
+        "title": "Current File Path: Absolute path",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.viewFromWorkSpaceRoot",
+        "title": "Current File Path: From workspace root path",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.copy",
+        "title": "Current File Path: Copy",
+        "group": "current-file-path"
       }
     ]
   },
