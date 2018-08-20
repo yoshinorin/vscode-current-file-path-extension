@@ -9,11 +9,19 @@ export function activate(context: ExtensionContext) {
     let currentFile = new CurrentFile();
     let listner = new EditorChangeListner(currentFile);
 
-    let disposable = commands.registerCommand('currentFilePath.executeQuickPickerAction', () => {
-        currentFile.executeQuickPickerAction();
-    });
+    let disposableCommands = [
+        commands.registerCommand('currentFilePath.executeQuickPickerAction', () => { currentFile.executeQuickPickerAction();}),
+        commands.registerCommand('currentFilePath.viewUnixStyle', () => { currentFile.viewUnixStyle();}),
+        commands.registerCommand('currentFilePath.viewWindowsStyle', () => { currentFile.viewWindowsStyle();}),
+        commands.registerCommand('currentFilePath.viewFromSystemRoot', () => { currentFile.viewFromSystemRoot();}),
+        commands.registerCommand('currentFilePath.viewFromWorkSpaceRoot', () => { currentFile.viewFromWorkSpaceRoot();}),
+        commands.registerCommand('currentFilePath.copy', () => { currentFile.copy();}),
+    ];
 
-    context.subscriptions.push(disposable);
+    disposableCommands.forEach((command) => {
+        console.log(command);
+        context.subscriptions.push(command);
+    });
     context.subscriptions.push(listner);
     context.subscriptions.push(currentFile);
 }

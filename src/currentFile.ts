@@ -123,28 +123,48 @@ export class CurrentFile {
         this.statusBarItem.show();
     }
 
+    public viewUnixStyle() {
+        this.currentStyle = PathStyles.UNIX;
+        this.updateStatusBar();
+    }
+
+    public viewWindowsStyle() {
+        this.currentStyle = PathStyles.WINDOWS;
+        this.updateStatusBar();
+    }
+
+    public viewFromSystemRoot() {
+        this.fromWorkSpaceOrNot = false;
+        this.updateStatusBar();
+    }
+
+    public viewFromWorkSpaceRoot() {
+        this.fromWorkSpaceOrNot = true;
+        this.updateStatusBar();
+    }
+
+    public copy() {
+        let path = this.fromWorkSpaceOrNot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
+        clipboardy.writeSync(path);
+    }
+
     public executeQuickPickerAction() {
         this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.fromWorkSpaceOrNot).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
-                    this.currentStyle = PathStyles.UNIX;
-                    this.updateStatusBar();
+                    this.viewUnixStyle();
                     return;
                 case QuickPickerAction.viewWindowsStyle:
-                    this.currentStyle = PathStyles.WINDOWS;
-                    this.updateStatusBar();
+                    this.viewWindowsStyle();
                     return;
                 case QuickPickerAction.viewFromSystemRoot:
-                    this.fromWorkSpaceOrNot = false;
-                    this.updateStatusBar();
+                    this.viewFromSystemRoot();
                     return;
                 case QuickPickerAction.viewFromWorkSpaceRoot:
-                    this.fromWorkSpaceOrNot = true;
-                    this.updateStatusBar();
+                    this.viewFromWorkSpaceRoot();
                     return;
                 case QuickPickerAction.copy:
-                    let path = this.fromWorkSpaceOrNot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
-                    clipboardy.writeSync(path);
+                    this.copy();
                 default:
                     return;
             }
