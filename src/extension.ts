@@ -19,7 +19,6 @@ export function activate(context: ExtensionContext) {
     ];
 
     disposableCommands.forEach((command) => {
-        console.log(command);
         context.subscriptions.push(command);
     });
     context.subscriptions.push(listner);
