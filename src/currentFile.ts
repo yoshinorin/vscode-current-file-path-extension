@@ -25,15 +25,7 @@ export class CurrentFile {
     }
 
     private get isWorkSpace(): boolean {
-        return workspace.rootPath !== undefined;
-    }
-
-    private get workSpaceRootPath(): undefined | string {
-        return workspace.rootPath;
-    }
-
-    private get workSpaceName(): undefined | string {
-        return workspace.name;
+        return workspace.workspaceFolders !== undefined;
     }
 
     private _currentStyle: string;
@@ -74,12 +66,19 @@ export class CurrentFile {
         return this.toWindowsStyle(this._currentFromWorkSpaceRootPath);
     }
     private set currentFromWorkSpaceRootPath(path: string) {
-        let wsPath = this.workSpaceRootPath;
-        if (wsPath === undefined) {
+        let folders = workspace.workspaceFolders;
+        if (folders === undefined) {
             this._currentFromWorkSpaceRootPath = path;
-        } else {
-            this._currentFromWorkSpaceRootPath = pathModule.join(this.workSpaceName, this.toUnixStyle(path).replace(this.toUnixStyle(wsPath), ""));
+            return;
         }
+        let rootFolderObj = folders.find(x => {
+            return this.toUnixStyle(path).startsWith(this.toUnixStyle(x.uri.fsPath));
+        });
+        if (rootFolderObj === undefined) {
+            this._currentFromWorkSpaceRootPath = path;
+            return;
+        }
+        this._currentFromWorkSpaceRootPath = pathModule.join(rootFolderObj.name, this.toUnixStyle(path).replace(this.toUnixStyle(rootFolderObj.uri.fsPath), ""));
     }
 
     constructor() {
