@@ -13,7 +13,9 @@ export enum QuickPickerAction {
     viewWindowsStyle,
     viewFromSystemRoot,
     viewFromWorkSpaceRoot,
-    copy
+    copy,
+    copyFileName,
+    copyFileNameWithOutExtension
 }
 
 export class QuickPicker {
@@ -61,7 +63,19 @@ export class QuickPicker {
         this._pickItems.push({
             id: QuickPickerAction.copy,
             description: "Copy a current file path to clipboard.",
-            label: "COPY",
+            label: "COPY (Path)",
+        });
+
+        this._pickItems.push({
+            id: QuickPickerAction.copyFileName,
+            description: "Copy a current file name to clipboard.",
+            label: "COPY (FileName)",
+        });
+
+        this._pickItems.push({
+            id: QuickPickerAction.copyFileNameWithOutExtension,
+            description: "Copy a current file name (without extension) to clipboard.",
+            label: "COPY (FileName without extension)",
         });
 
        let selectedAction = await window.showQuickPick(this._pickItems, {

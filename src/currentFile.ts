@@ -81,6 +81,14 @@ export class CurrentFile {
         this._currentFromWorkSpaceRootPath = pathModule.join(rootFolderObj.name, this.toUnixStyle(path).replace(this.toUnixStyle(rootFolderObj.uri.fsPath), ""));
     }
 
+    private _name: string = "";
+    private get name(): string {
+        return this._name;
+    }
+    private set name(s: string) {
+        this._name = s;
+    }
+
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
@@ -117,6 +125,7 @@ export class CurrentFile {
 
         this.currentFromSystemRootPath = editor.document.uri.fsPath;
         this.currentFromWorkSpaceRootPath = editor.document.uri.fsPath;
+        this.name = pathModule.basename(editor.document.uri.fsPath);
 
         this.updateStatusBar();
         this.statusBarItem.show();
@@ -147,6 +156,14 @@ export class CurrentFile {
         clipboardy.writeSync(path);
     }
 
+    public copyFileName() {
+        clipboardy.writeSync(this.name);
+    }
+
+    public copyFileNameWithOutExtension() {
+        clipboardy.writeSync(this.name.slice(0, this.name.lastIndexOf(".")));
+    }
+
     public executeQuickPickerAction() {
         this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.fromWorkSpaceOrNot).then((actionId) => {
             switch (actionId) {
@@ -164,6 +181,13 @@ export class CurrentFile {
                     return;
                 case QuickPickerAction.copy:
                     this.copy();
+                    return;
+                case QuickPickerAction.copyFileName:
+                    this.copyFileName();
+                    return;
+                case QuickPickerAction.copyFileNameWithOutExtension:
+                    this.copyFileNameWithOutExtension();
+                    return;
                 default:
                     return;
             }

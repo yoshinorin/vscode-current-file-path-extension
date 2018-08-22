@@ -16,6 +16,8 @@ export function activate(context: ExtensionContext) {
         commands.registerCommand('currentFilePath.viewFromSystemRoot', () => { currentFile.viewFromSystemRoot();}),
         commands.registerCommand('currentFilePath.viewFromWorkSpaceRoot', () => { currentFile.viewFromWorkSpaceRoot();}),
         commands.registerCommand('currentFilePath.copy', () => { currentFile.copy();}),
+        commands.registerCommand('currentFilePath.copyFileName', () => { currentFile.copyFileName();}),
+        commands.registerCommand('currentFilePath.copyFileNameWithOutExtension', () => { currentFile.copyFileNameWithOutExtension();}),
     ];
 
     disposableCommands.forEach((command) => {

@@ -85,7 +85,17 @@
       },
       {
         "command": "currentFilePath.copy",
-        "title": "Current File Path: Copy",
+        "title": "Current File Path: Copy (Path)",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.copyFileName",
+        "title": "Current File Path: Copy (FileName)",
+        "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.copyFileNameWithOutExtension",
+        "title": "Current File Path: Copy (FileName without extension)",
         "group": "current-file-path"
       }
     ]
