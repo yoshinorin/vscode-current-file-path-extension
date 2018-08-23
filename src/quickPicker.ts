@@ -33,14 +33,16 @@ export class QuickPicker {
         if (currentStyle === PathStyles.UNIX) {
             this._pickItems.push({
                 id: QuickPickerAction.viewWindowsStyle,
-                description: "View on Windows style path.",
-                label: "Windows style",
+                description: "",
+                label: "Path separator: Windows style",
+                detail: "View on Windows style path"
             });
         } else {
             this._pickItems.push({
                 id: QuickPickerAction.viewUnixStyle,
-                description: "View on UNIX style path.",
-                label: "UNIX style",
+                description: "",
+                label: "Path separator: UNIX style",
+                detail: "View on UNIX style path"
             });
         }
 
@@ -48,14 +50,16 @@ export class QuickPicker {
             if (pathStartingFrom === PathStartingFrom.WORK_SPACE) {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromSystemRoot,
-                    description: "View from root.",
-                    label: "Absolute path",
+                    description: "",
+                    label: "Path starts from: Root",
+                    detail: "View from root directory"
                 });
             } else {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromWorkSpaceRoot,
-                    description: "View from workspace root.",
-                    label: "From workspace root",
+                    description: "",
+                    label: "Path starts from: WorkSpace",
+                    detail: "View from workspace highest directory"
                 });
             }
         }
@@ -63,23 +67,23 @@ export class QuickPicker {
         this._pickItems.push({
             id: QuickPickerAction.copy,
             description: "Copy a current file path to clipboard.",
-            label: "COPY (Path)",
+            label: "COPY: Path",
         });
 
         this._pickItems.push({
             id: QuickPickerAction.copyFileName,
             description: "Copy a current file name to clipboard.",
-            label: "COPY (FileName)",
+            label: "COPY: FileName",
         });
 
         this._pickItems.push({
             id: QuickPickerAction.copyFileNameWithOutExtension,
             description: "Copy a current file name (without extension) to clipboard.",
-            label: "COPY (FileName without extension)",
+            label: "COPY: FileName without extension",
         });
 
        let selectedAction = await window.showQuickPick(this._pickItems, {
-           placeHolder: "Select Menu"
+           placeHolder: "Select"
        });
 
        if (!selectedAction) {
