@@ -3,7 +3,7 @@
 import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
 import { Config } from './config';
 import { QuickPicker, QuickPickerAction } from './quickPicker';
-import { PathStyles } from './utils/pathStyles';
+import { PathStyles, PathStartingFrom } from './utils/types';
 const clipboardy = require('clipboardy');
 const pathModule = require('path');
 
@@ -39,12 +39,15 @@ export class CurrentFile {
         this._currentStyle = style;
     }
 
-    private _fromWorkSpaceOrNot: boolean;
-    private get fromWorkSpaceOrNot(): boolean {
-        return this._fromWorkSpaceOrNot;
+    private _currentPathStartingFrom: string;
+    private get currentPathStartingFrom(): string {
+        if (this._currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
+            return PathStartingFrom.ROOT_DIRECTORY;
+        }
+        return PathStartingFrom.WORK_SPACE;
     }
-    private set fromWorkSpaceOrNot(fromWorkSpaceOrNot: boolean) {
-        this._fromWorkSpaceOrNot = fromWorkSpaceOrNot;
+    private set currentPathStartingFrom(statingFrom: string) {
+        this._currentPathStartingFrom = statingFrom;
     }
 
     private _currentFromSystemRootPath: string = "";
@@ -92,7 +95,7 @@ export class CurrentFile {
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
-        this._fromWorkSpaceOrNot = this.config.fromWorkSpaceOrNot;
+        this._currentPathStartingFrom = this.config.defaultPathStartingFrom;
         this._currentStyle = this.config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
@@ -109,10 +112,10 @@ export class CurrentFile {
     }
 
     private updateStatusBar() {
-        if (this.fromWorkSpaceOrNot) {
-            this.statusBarItem.text = this.currentFromWorkSpaceRootPath;
-        } else {
+        if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
             this.statusBarItem.text = this.currentFromSystemRootPath;
+        } else {
+            this.statusBarItem.text = this.currentFromWorkSpaceRootPath;
         }
     }
 
@@ -142,18 +145,21 @@ export class CurrentFile {
     }
 
     public viewFromSystemRoot() {
-        this.fromWorkSpaceOrNot = false;
+        this.currentPathStartingFrom = PathStartingFrom.ROOT_DIRECTORY;
         this.updateStatusBar();
     }
 
     public viewFromWorkSpaceRoot() {
-        this.fromWorkSpaceOrNot = true;
+        this.currentPathStartingFrom = PathStartingFrom.WORK_SPACE;
         this.updateStatusBar();
     }
 
     public copy() {
-        let path = this.fromWorkSpaceOrNot ? this.currentFromWorkSpaceRootPath : this.currentFromSystemRootPath;
-        clipboardy.writeSync(path);
+        if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
+            clipboardy.writeSync(this.currentFromSystemRootPath);
+            return;
+        }
+        clipboardy.writeSync(this.currentFromWorkSpaceRootPath);
     }
 
     public copyFileName() {
@@ -165,7 +171,7 @@ export class CurrentFile {
     }
 
     public executeQuickPickerAction() {
-        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.fromWorkSpaceOrNot).then((actionId) => {
+        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.currentPathStartingFrom).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
                     this.viewUnixStyle();

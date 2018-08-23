@@ -49,10 +49,14 @@
           "description": "The priority in the statusBar. Higher values shown more to the left.",
           "scope": "window"
         },
-        "currentFilePath.fromWorkSpaceOrNot": {
-          "type": "boolean",
-          "default": false,
-          "description": "Shown from workspace root path or not.",
+        "currentFilePath.defaultPathStartingFrom": {
+          "type": "string",
+          "default": "rootDirectory",
+          "enum": [
+            "rootDirectory",
+            "workSpace"
+          ],
+          "description": "Default value of where the path is displayed starting from. Root directory or workspace highest directory.",
           "scope": "window"
         }
       }

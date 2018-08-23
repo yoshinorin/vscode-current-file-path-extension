@@ -1,7 +1,7 @@
 'use strict';
 
 import { QuickPickItem, window } from 'vscode';
-import { PathStyles } from './utils/pathStyles';
+import { PathStyles, PathStartingFrom } from './utils/Types';
 
 interface MenuQuickPickItem extends QuickPickItem {
     id: QuickPickerAction;
@@ -26,7 +26,7 @@ export class QuickPicker {
 
     }
 
-    public async getActionId(currentStyle: string, isWorkSpace: boolean, fromWorkSpaceOrNot: boolean): Promise<Number> {
+    public async getActionId(currentStyle: string, isWorkSpace: boolean, pathStartingFrom: string): Promise<Number> {
 
         this._pickItems = [];
 
@@ -45,7 +45,7 @@ export class QuickPicker {
         }
 
         if (isWorkSpace) {
-            if (fromWorkSpaceOrNot) {
+            if (pathStartingFrom === PathStartingFrom.WORK_SPACE) {
                 this._pickItems.push({
                     id: QuickPickerAction.viewFromSystemRoot,
                     description: "View from root.",
