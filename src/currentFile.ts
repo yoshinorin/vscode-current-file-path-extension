@@ -50,38 +50,38 @@ export class CurrentFile {
         this._currentPathStartingFrom = statingFrom;
     }
 
-    private _currentFromSystemRootPath: string = "";
-    private get currentFromSystemRootPath(): string {
+    private _startsFromRootDirectoryPath: string = "";
+    private get startsFromRootDirectoryPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this.toUnixStyle(this._currentFromSystemRootPath);
+            return this.toUnixStyle(this._startsFromRootDirectoryPath);
         }
-        return this.toWindowsStyle(this._currentFromSystemRootPath);
+        return this.toWindowsStyle(this._startsFromRootDirectoryPath);
     }
-    private set currentFromSystemRootPath(path: string) {
-        this._currentFromSystemRootPath = path;
+    private set startsFromRootDirectoryPath(path: string) {
+        this._startsFromRootDirectoryPath = path;
     }
 
-    private _currentFromWorkSpaceRootPath: string = "";
-    private get currentFromWorkSpaceRootPath(): string {
+    private _startsFromWorkSpaceHighestDirectoryPath: string = "";
+    private get startsFromWorkSpaceHighestDirectoryPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this.toUnixStyle(this._currentFromWorkSpaceRootPath);
+            return this.toUnixStyle(this._startsFromWorkSpaceHighestDirectoryPath);
         }
-        return this.toWindowsStyle(this._currentFromWorkSpaceRootPath);
+        return this.toWindowsStyle(this._startsFromWorkSpaceHighestDirectoryPath);
     }
-    private set currentFromWorkSpaceRootPath(path: string) {
+    private set startsFromWorkSpaceHighestDirectoryPath(path: string) {
         let folders = workspace.workspaceFolders;
         if (folders === undefined) {
-            this._currentFromWorkSpaceRootPath = path;
+            this._startsFromWorkSpaceHighestDirectoryPath = path;
             return;
         }
         let rootFolderObj = folders.find(x => {
             return this.toUnixStyle(path).startsWith(this.toUnixStyle(x.uri.fsPath));
         });
         if (rootFolderObj === undefined) {
-            this._currentFromWorkSpaceRootPath = path;
+            this._startsFromWorkSpaceHighestDirectoryPath = path;
             return;
         }
-        this._currentFromWorkSpaceRootPath = pathModule.join(rootFolderObj.name, this.toUnixStyle(path).replace(this.toUnixStyle(rootFolderObj.uri.fsPath), ""));
+        this._startsFromWorkSpaceHighestDirectoryPath = pathModule.join(rootFolderObj.name, this.toUnixStyle(path).replace(this.toUnixStyle(rootFolderObj.uri.fsPath), ""));
     }
 
     private _name: string = "";
@@ -113,9 +113,9 @@ export class CurrentFile {
 
     private updateStatusBar() {
         if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
-            this.statusBarItem.text = this.currentFromSystemRootPath;
+            this.statusBarItem.text = this.startsFromRootDirectoryPath;
         } else {
-            this.statusBarItem.text = this.currentFromWorkSpaceRootPath;
+            this.statusBarItem.text = this.startsFromWorkSpaceHighestDirectoryPath;
         }
     }
 
@@ -126,8 +126,8 @@ export class CurrentFile {
             return;
         }
 
-        this.currentFromSystemRootPath = editor.document.uri.fsPath;
-        this.currentFromWorkSpaceRootPath = editor.document.uri.fsPath;
+        this.startsFromRootDirectoryPath = editor.document.uri.fsPath;
+        this.startsFromWorkSpaceHighestDirectoryPath = editor.document.uri.fsPath;
         this.name = pathModule.basename(editor.document.uri.fsPath);
 
         this.updateStatusBar();
@@ -156,10 +156,10 @@ export class CurrentFile {
 
     public copy() {
         if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
-            clipboardy.writeSync(this.currentFromSystemRootPath);
+            clipboardy.writeSync(this.startsFromRootDirectoryPath);
             return;
         }
-        clipboardy.writeSync(this.currentFromWorkSpaceRootPath);
+        clipboardy.writeSync(this.startsFromWorkSpaceHighestDirectoryPath);
     }
 
     public copyFileName() {
