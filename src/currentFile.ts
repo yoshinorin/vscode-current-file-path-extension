@@ -3,7 +3,7 @@
 import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
 import { Config } from './config';
 import { QuickPicker, QuickPickerAction } from './quickPicker';
-import { PathStyles, PathStartingFrom } from './utils/types';
+import { PathStyles, PathStartsFrom } from './utils/types';
 const clipboardy = require('clipboardy');
 const pathModule = require('path');
 
@@ -39,15 +39,15 @@ export class CurrentFile {
         this._currentStyle = style;
     }
 
-    private _currentPathStartingFrom: string;
-    private get currentPathStartingFrom(): string {
-        if (this._currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
-            return PathStartingFrom.ROOT_DIRECTORY;
+    private _currentPathStartsFrom: string;
+    private get currentPathStartsFrom(): string {
+        if (this._currentPathStartsFrom === PathStartsFrom.ROOT_DIRECTORY) {
+            return PathStartsFrom.ROOT_DIRECTORY;
         }
-        return PathStartingFrom.WORK_SPACE;
+        return PathStartsFrom.WORK_SPACE;
     }
-    private set currentPathStartingFrom(statingFrom: string) {
-        this._currentPathStartingFrom = statingFrom;
+    private set currentPathStartsFrom(statingFrom: string) {
+        this._currentPathStartsFrom = statingFrom;
     }
 
     private _startsFromRootDirectoryPath: string = "";
@@ -95,7 +95,7 @@ export class CurrentFile {
     constructor() {
         this._config = new Config();
         this._quickPicker = new QuickPicker();
-        this._currentPathStartingFrom = this.config.defaultPathStartingFrom;
+        this._currentPathStartsFrom = this.config.defaultPathStartsFrom;
         this._currentStyle = this.config.defaultPathStyle;
         this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
         this._statusBarItem.tooltip = "Open Menus";
@@ -112,7 +112,7 @@ export class CurrentFile {
     }
 
     private updateStatusBar() {
-        if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
+        if (this.currentPathStartsFrom === PathStartsFrom.ROOT_DIRECTORY) {
             this.statusBarItem.text = this.startsFromRootDirectoryPath;
         } else {
             this.statusBarItem.text = this.startsFromWorkSpaceHighestDirectoryPath;
@@ -145,17 +145,17 @@ export class CurrentFile {
     }
 
     public viewFromSystemRoot() {
-        this.currentPathStartingFrom = PathStartingFrom.ROOT_DIRECTORY;
+        this.currentPathStartsFrom = PathStartsFrom.ROOT_DIRECTORY;
         this.updateStatusBar();
     }
 
     public viewFromWorkSpaceRoot() {
-        this.currentPathStartingFrom = PathStartingFrom.WORK_SPACE;
+        this.currentPathStartsFrom = PathStartsFrom.WORK_SPACE;
         this.updateStatusBar();
     }
 
     public copy() {
-        if (this.currentPathStartingFrom === PathStartingFrom.ROOT_DIRECTORY) {
+        if (this.currentPathStartsFrom === PathStartsFrom.ROOT_DIRECTORY) {
             clipboardy.writeSync(this.startsFromRootDirectoryPath);
             return;
         }
@@ -171,7 +171,7 @@ export class CurrentFile {
     }
 
     public executeQuickPickerAction() {
-        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.currentPathStartingFrom).then((actionId) => {
+        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.currentPathStartsFrom).then((actionId) => {
             switch (actionId) {
                 case QuickPickerAction.viewUnixStyle:
                     this.viewUnixStyle();

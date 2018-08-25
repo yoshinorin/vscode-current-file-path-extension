@@ -16,9 +16,9 @@ export class Config {
         return this._priorityInStatusBar;
     }
 
-    private readonly _defaultPathStartingFrom: string = "";
-    public get defaultPathStartingFrom(): string {
-        return this._defaultPathStartingFrom;
+    private readonly _defaultPathStartsFrom: string = "";
+    public get defaultPathStartsFrom(): string {
+        return this._defaultPathStartsFrom;
     }
 
     constructor() {
@@ -26,7 +26,7 @@ export class Config {
             this._config = workspace.getConfiguration("currentFilePath");
             this._defaultPathStyle = this._config.defaultPathStyle;
             this._priorityInStatusBar = this._config.priorityInStatusBar;
-            this._defaultPathStartingFrom = this._config.defaultPathStartingFrom;
+            this._defaultPathStartsFrom = this._config.defaultPathStartsFrom;
         } catch (ex) {
             window.showErrorMessage(ex.message);
         }

@@ -5,7 +5,7 @@ export const PathStyles = {
     WINDOWS: "windows",
 };
 
-export const PathStartingFrom = {
+export const PathStartsFrom = {
     ROOT_DIRECTORY: "rootDirectory",
     WORK_SPACE: "workSpace"
 };
