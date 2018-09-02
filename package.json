@@ -118,7 +118,7 @@
     "tslint": "^5.11.0",
     "typescript": "^3.0.0",
     "vsce": "^1.46.0",
-    "vscode": "1.1.18"
+    "vscode": "^1.1.18"
   },
   "dependencies": {
     "clipboardy": "^1.2.3"
