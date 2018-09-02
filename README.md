@@ -15,7 +15,7 @@ Visual Studio Code extension. This extension display current file's path from ab
         * Can select which to use by settings.
         * Can change shown using by QuickPick or command palette.
 * Copy a current file path to clipboard.
-* Copy a current file name.
+* Copy a current file name to clipboard.
 * Can set display priority in the StatusBar by setting.
 
 ## Images
