@@ -22,6 +22,10 @@ Visual Studio Code extension. This extension display current file's path from ab
 
 ![](https://raw.githubusercontent.com/YoshinoriN/vscode-current-file-path-extension/master/images/image.gif)
 
+**Command Palette**
+
+![](https://raw.githubusercontent.com/YoshinoriN/vscode-current-file-path-extension/master/images/command-palette.png)
+
 ## Extension Settings
 
 |Property|Description|value|Default|
