@@ -24,11 +24,11 @@ Visual Studio Code extension. This extension display current file's path from ab
 
 ## Extension Settings
 
-|Property|Description|values|Default|
-|---|---|---|
-|`currentFilePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix`|
-|`currentFilePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.|`0`|
-|`currentFilePath.defaultPathStartsFrom`|Default value of where the path is displayed starts from. Root directory or workspace highest directory.|`rootDirectory`|
+|Property|Description|value|Default|
+|---|---|---|---|
+|`currentFilePath.defaultPathStyle`|Specify default path style. Unix like or Windows like.|`unix` <br> `windows`|`unix`|
+|`currentFilePath.priorityInStatusBar`|The priority in the statusBar. Higher values shown more to the left.| `0` ~ max int |`0`|
+|`currentFilePath.defaultPathStartsFrom`|Default value of where the path is displayed starts from. Root directory or workspace highest directory.|`rootDirectory` <br> `workSpace`|`rootDirectory`|
 
 ## Requirements
 
