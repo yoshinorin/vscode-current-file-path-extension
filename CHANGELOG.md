@@ -1,6 +1,6 @@
 # Change Log
 
-## v2.0.0 - 2018-xx-xx
+## v2.0.0 - 2018-09-04
 ---
 
 ### Breaking change
