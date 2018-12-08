@@ -67,3 +67,9 @@ Visual Studio Code extension. This extension display current file's path from ab
 ---
 
 * Initial release
+
+## Development
+
+### Document
+
+Document is [here](https://yoshinorin.github.io/vscode-current-file-path-extension/docs/). Generate by tyoedoc.

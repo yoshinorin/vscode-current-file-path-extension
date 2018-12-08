@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>current-file-path</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">current-file-path</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> current-file-path</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="current-file-path">Current File Path</h1>
+				<p><img src="https://img.shields.io/badge/Release-v2.0.0-blue.svg?style=flat-square" alt="">
+				<img src="https://img.shields.io/badge/vscode-^1.18.0-blue.svg?style=flat-square" alt=""></p>
+				<p>Visual Studio Code extension. This extension display current file&#39;s path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.</p>
+				<h2 id="features">Features</h2>
+				<ul>
+					<li>Display a current file&#39;s path in the StatusBar.<ul>
+							<li>Absolute (root directory) or starts from workspace highest directory<ul>
+									<li>Can select which to use by settings.</li>
+									<li>Can change shown using by QuickPick or command palette.</li>
+								</ul>
+							</li>
+							<li>Path separator style can choose Unix or Windows.<ul>
+									<li>Can select which to use by settings.</li>
+									<li>Can change shown using by QuickPick or command palette.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Copy a current file path to clipboard.</li>
+					<li>Copy a current file name to clipboard.</li>
+					<li>Can set display priority in the StatusBar by setting.</li>
+				</ul>
+				<h2 id="images">Images</h2>
+				<p><img src="https://raw.githubusercontent.com/YoshinoriN/vscode-current-file-path-extension/master/images/image.gif" alt=""></p>
+				<p><strong>Command Palette</strong></p>
+				<p><img src="https://raw.githubusercontent.com/YoshinoriN/vscode-current-file-path-extension/master/images/command-palette.png" alt=""></p>
+				<h2 id="extension-settings">Extension Settings</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Property</th>
+							<th>Description</th>
+							<th>value</th>
+							<th>Default</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>currentFilePath.defaultPathStyle</code></td>
+							<td>Specify default path style. Unix like or Windows like.</td>
+							<td><code>unix</code> <br> <code>windows</code></td>
+							<td><code>unix</code></td>
+						</tr>
+						<tr>
+							<td><code>currentFilePath.priorityInStatusBar</code></td>
+							<td>The priority in the statusBar. Higher values shown more to the left.</td>
+							<td><code>0</code> ~ max int</td>
+							<td><code>0</code></td>
+						</tr>
+						<tr>
+							<td><code>currentFilePath.defaultPathStartsFrom</code></td>
+							<td>Default value of where the path is displayed starts from. Root directory or workspace highest directory.</td>
+							<td><code>rootDirectory</code> <br> <code>workSpace</code></td>
+							<td><code>rootDirectory</code></td>
+						</tr>
+				</tbody></table>
+				<h2 id="requirements">Requirements</h2>
+				<ul>
+					<li>Visual Studio Code 1.18.0 later</li>
+					<li>Linux will probably have to install <a href="https://linux.die.net/man/1/xsel">xsel</a>.<ul>
+							<li>e.g.) Debian/Ubuntu <code>sudo apt install xsel</code></li>
+						</ul>
+					</li>
+				</ul>
+				<h2 id="release-notes">Release Notes</h2>
+				<h3 id="v2-0-0">v2.0.0</h3>
+				<hr>
+				<h4 id="breaking-change">Breaking change</h4>
+				<p><code>fromWorkSpaceOrNot</code> setting changed to <code>defaultPathStartsFrom</code>. Please change your setting if use.</p>
+				<h4 id="new-feature">New feature</h4>
+				<ul>
+					<li>(refs <a href="https://github.com/YoshinoriN/vscode-current-file-path-extension/issues/16">#16</a>) All action callable from command palette.</li>
+					<li>(refs <a href="https://github.com/YoshinoriN/vscode-current-file-path-extension/issues/19">#19</a>) Implement copy file name feature.</li>
+				</ul>
+				<h4 id="bug-fix">Bug fix</h4>
+				<ul>
+					<li>(refs <a href="https://github.com/YoshinoriN/vscode-current-file-path-extension/issues/21">#21</a>) Can not get correct each root folder path if workspace has some folders.</li>
+				</ul>
+				<h4 id="others">Others</h4>
+				<ul>
+					<li>Change some UI</li>
+					<li>Improve wording</li>
+				</ul>
+				<h3 id="v1-0-0">v1.0.0</h3>
+				<hr>
+				<ul>
+					<li>Initial release</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_config_.html">"config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_currentfile_.html">"current<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_editorchangelistner_.html">"editor<wbr>Change<wbr>Listner"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_extension_.html">"extension"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_quickpicker_.html">"quick<wbr>Picker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_utils_types_.html">"utils/types"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
