@@ -120,7 +120,7 @@
     "typedoc": "^0.13.0",
     "typescript": "^3.2.4",
     "vsce": "1.54.0",
-    "vscode": "1.1.18"
+    "vscode": "1.1.30"
   },
   "dependencies": {
     "clipboardy": "1.2.3"
