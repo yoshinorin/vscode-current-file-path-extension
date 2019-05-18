@@ -115,7 +115,7 @@
     "doc": "typedoc --out doc"
   },
   "devDependencies": {
-    "@types/mocha": "2.2.42",
+    "@types/mocha": "5.2.6",
     "@types/node": "11.9.3",
     "tslint": "5.16.0",
     "typedoc": "^0.13.0",
