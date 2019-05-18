@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "engines": {
+    "node": ">=8",
     "vscode": "^1.18.0"
   },
   "categories": [
@@ -124,5 +125,5 @@
   },
   "dependencies": {
     "clipboardy": "1.2.3"
-  }
+  },
 }
