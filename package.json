@@ -114,7 +114,7 @@
     "package": "vsce package ./node_modules/.bin/vsce package"
   },
   "devDependencies": {
-    "@types/node": "11.9.3",
+    "@types/node": "12.0.10",
     "tslint": "5.16.0",
     "typescript": "^3.4.5",
     "vsce": "1.54.0",
