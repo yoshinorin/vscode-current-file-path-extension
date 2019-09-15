@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
-import { CurrentFile } from './currentFile';
-import { Disposable, window } from 'vscode';
+import { CurrentFile } from "./currentFile";
+import { Disposable, window } from "vscode";
 
 export class EditorChangeListner {
-
     private _currentFile: CurrentFile;
     private _disposable: Disposable;
 
@@ -12,7 +11,7 @@ export class EditorChangeListner {
         this._currentFile.update();
     }
 
-    constructor (currentFile: CurrentFile) {
+    constructor(currentFile: CurrentFile) {
         this._currentFile = currentFile;
 
         let subscriptions: Disposable[] = [];

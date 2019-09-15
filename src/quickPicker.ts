@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-import { QuickPickItem, window } from 'vscode';
-import { PathStyles, PathStartsFrom } from './utils/types';
+import { QuickPickItem, window } from "vscode";
+import { PathStyles, PathStartsFrom } from "./utils/types";
 
 interface MenuQuickPickItem extends QuickPickItem {
     id: QuickPickerAction;
@@ -19,15 +19,15 @@ export enum QuickPickerAction {
 }
 
 export class QuickPicker {
-
     private _pickItems: MenuQuickPickItem[] = [];
 
-    constructor() {
+    constructor() {}
 
-    }
-
-    public async getActionId(currentStyle: string, isWorkSpace: boolean, pathStartsFrom: string): Promise<Number> {
-
+    public async getActionId(
+        currentStyle: string,
+        isWorkSpace: boolean,
+        pathStartsFrom: string
+    ): Promise<Number> {
         this._pickItems = [];
 
         if (currentStyle === PathStyles.UNIX) {
@@ -67,30 +67,30 @@ export class QuickPicker {
         this._pickItems.push({
             id: QuickPickerAction.copy,
             description: "Copy a current file path to clipboard.",
-            label: "COPY: Path",
+            label: "COPY: Path"
         });
 
         this._pickItems.push({
             id: QuickPickerAction.copyFileName,
             description: "Copy a current file name to clipboard.",
-            label: "COPY: FileName",
+            label: "COPY: FileName"
         });
 
         this._pickItems.push({
             id: QuickPickerAction.copyFileNameWithOutExtension,
-            description: "Copy a current file name (without extension) to clipboard.",
-            label: "COPY: FileName without extension",
+            description:
+                "Copy a current file name (without extension) to clipboard.",
+            label: "COPY: FileName without extension"
         });
 
-       let selectedAction = await window.showQuickPick(this._pickItems, {
-           placeHolder: "Select"
-       });
+        let selectedAction = await window.showQuickPick(this._pickItems, {
+            placeHolder: "Select"
+        });
 
-       if (!selectedAction) {
-           return QuickPickerAction.noAction;
-       }
+        if (!selectedAction) {
+            return QuickPickerAction.noAction;
+        }
 
-       return selectedAction.id;
+        return selectedAction.id;
     }
-
 }

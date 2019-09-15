@@ -1,14 +1,13 @@
-'use strict';
+"use strict";
 
-import { StatusBarAlignment, StatusBarItem, window, workspace } from 'vscode';
-import { Config } from './config';
-import { QuickPicker, QuickPickerAction } from './quickPicker';
-import { PathStyles, PathStartsFrom } from './utils/types';
-const clipboardy = require('clipboardy');
-const pathModule = require('path');
+import { StatusBarAlignment, StatusBarItem, window, workspace } from "vscode";
+import { Config } from "./config";
+import { QuickPicker, QuickPickerAction } from "./quickPicker";
+import { PathStyles, PathStartsFrom } from "./utils/types";
+const clipboardy = require("clipboardy");
+const pathModule = require("path");
 
 export class CurrentFile {
-
     private readonly _config: Config;
     private get config(): Config {
         return this._config;
@@ -64,9 +63,13 @@ export class CurrentFile {
     private _startsFromWorkSpaceHighestDirectoryPath: string = "";
     private get startsFromWorkSpaceHighestDirectoryPath(): string {
         if (this.currentStyle === PathStyles.UNIX) {
-            return this.toUnixStyle(this._startsFromWorkSpaceHighestDirectoryPath);
+            return this.toUnixStyle(
+                this._startsFromWorkSpaceHighestDirectoryPath
+            );
         }
-        return this.toWindowsStyle(this._startsFromWorkSpaceHighestDirectoryPath);
+        return this.toWindowsStyle(
+            this._startsFromWorkSpaceHighestDirectoryPath
+        );
     }
     private set startsFromWorkSpaceHighestDirectoryPath(path: string) {
         let folders = workspace.workspaceFolders;
@@ -75,13 +78,21 @@ export class CurrentFile {
             return;
         }
         let rootFolderObj = folders.find(x => {
-            return this.toUnixStyle(path).startsWith(this.toUnixStyle(x.uri.fsPath));
+            return this.toUnixStyle(path).startsWith(
+                this.toUnixStyle(x.uri.fsPath)
+            );
         });
         if (rootFolderObj === undefined) {
             this._startsFromWorkSpaceHighestDirectoryPath = path;
             return;
         }
-        this._startsFromWorkSpaceHighestDirectoryPath = pathModule.join(rootFolderObj.name, this.toUnixStyle(path).replace(this.toUnixStyle(rootFolderObj.uri.fsPath), ""));
+        this._startsFromWorkSpaceHighestDirectoryPath = pathModule.join(
+            rootFolderObj.name,
+            this.toUnixStyle(path).replace(
+                this.toUnixStyle(rootFolderObj.uri.fsPath),
+                ""
+            )
+        );
     }
 
     private _name: string = "";
@@ -97,9 +108,13 @@ export class CurrentFile {
         this._quickPicker = new QuickPicker();
         this._currentPathStartsFrom = this.config.defaultPathStartsFrom;
         this._currentStyle = this.config.defaultPathStyle;
-        this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left, this.config.priorityInStatusBar);
+        this._statusBarItem = window.createStatusBarItem(
+            StatusBarAlignment.Left,
+            this.config.priorityInStatusBar
+        );
         this._statusBarItem.tooltip = "Open Menus";
-        this._statusBarItem.command = 'currentFilePath.executeQuickPickerAction';
+        this._statusBarItem.command =
+            "currentFilePath.executeQuickPickerAction";
         this.update();
     }
 
@@ -127,7 +142,8 @@ export class CurrentFile {
         }
 
         this.startsFromRootDirectoryPath = editor.document.uri.fsPath;
-        this.startsFromWorkSpaceHighestDirectoryPath = editor.document.uri.fsPath;
+        this.startsFromWorkSpaceHighestDirectoryPath =
+            editor.document.uri.fsPath;
         this.name = pathModule.basename(editor.document.uri.fsPath);
 
         this.updateStatusBar();
@@ -171,33 +187,39 @@ export class CurrentFile {
     }
 
     public executeQuickPickerAction() {
-        this.quickPicker.getActionId(this.currentStyle, this.isWorkSpace, this.currentPathStartsFrom).then((actionId) => {
-            switch (actionId) {
-                case QuickPickerAction.viewUnixStyle:
-                    this.viewUnixStyle();
-                    return;
-                case QuickPickerAction.viewWindowsStyle:
-                    this.viewWindowsStyle();
-                    return;
-                case QuickPickerAction.viewFromSystemRoot:
-                    this.viewFromSystemRoot();
-                    return;
-                case QuickPickerAction.viewFromWorkSpaceRoot:
-                    this.viewFromWorkSpaceRoot();
-                    return;
-                case QuickPickerAction.copy:
-                    this.copy();
-                    return;
-                case QuickPickerAction.copyFileName:
-                    this.copyFileName();
-                    return;
-                case QuickPickerAction.copyFileNameWithOutExtension:
-                    this.copyFileNameWithOutExtension();
-                    return;
-                default:
-                    return;
-            }
-        });
+        this.quickPicker
+            .getActionId(
+                this.currentStyle,
+                this.isWorkSpace,
+                this.currentPathStartsFrom
+            )
+            .then(actionId => {
+                switch (actionId) {
+                    case QuickPickerAction.viewUnixStyle:
+                        this.viewUnixStyle();
+                        return;
+                    case QuickPickerAction.viewWindowsStyle:
+                        this.viewWindowsStyle();
+                        return;
+                    case QuickPickerAction.viewFromSystemRoot:
+                        this.viewFromSystemRoot();
+                        return;
+                    case QuickPickerAction.viewFromWorkSpaceRoot:
+                        this.viewFromWorkSpaceRoot();
+                        return;
+                    case QuickPickerAction.copy:
+                        this.copy();
+                        return;
+                    case QuickPickerAction.copyFileName:
+                        this.copyFileName();
+                        return;
+                    case QuickPickerAction.copyFileNameWithOutExtension:
+                        this.copyFileNameWithOutExtension();
+                        return;
+                    default:
+                        return;
+                }
+            });
     }
 
     dispose() {

@@ -1,18 +1,17 @@
-'use strict';
+"use strict";
 
-import { window, workspace } from 'vscode';
+import { window, workspace } from "vscode";
 
 export class Config {
+    private readonly _config: any;
 
-    private readonly _config : any;
-
-    private readonly _defaultPathStyle : string = "";
-    public get defaultPathStyle() : string {
+    private readonly _defaultPathStyle: string = "";
+    public get defaultPathStyle(): string {
         return this._defaultPathStyle;
     }
 
     private readonly _priorityInStatusBar: number = 0;
-    public get priorityInStatusBar() : number {
+    public get priorityInStatusBar(): number {
         return this._priorityInStatusBar;
     }
 
@@ -31,5 +30,4 @@ export class Config {
             window.showErrorMessage(ex.message);
         }
     }
-
 }

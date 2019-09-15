@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 export const PathStyles = {
     UNIX: "unix",
-    WINDOWS: "windows",
+    WINDOWS: "windows"
 };
 
 export const PathStartsFrom = {
