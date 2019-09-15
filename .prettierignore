@@ -1,0 +1,12 @@
+**/.vscode-test/**
+**/node_modules/**
+**/.vscode/**
+.eslintrc.js
+.vscodeignore
+CHANGELOG.md
+LICENSE
+package-lock.json
+package.json
+README.md
+tsconfig.json
+**/out/**
