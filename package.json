@@ -126,6 +126,6 @@
     "vscode": "1.1.36"
   },
   "dependencies": {
-    "clipboardy": "2.1.0"
+    "clipboardy": "2.2.0"
   }
 }
