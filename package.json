@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=8",
+    "node": ">=10",
     "vscode": "^1.18.0"
   },
   "categories": [
@@ -115,17 +115,17 @@
     "package": "vsce package ./node_modules/.bin/vsce package"
   },
   "devDependencies": {
-    "@types/node": "13.7.7",
-    "@typescript-eslint/eslint-plugin": "2.14.0",
+    "@types/node": "13.9.2",
+    "@typescript-eslint/eslint-plugin": "2.24.0",
     "eslint": "6.8.0",
-    "eslint-config-prettier": "6.7.0",
+    "eslint-config-prettier": "6.10.0",
     "eslint-plugin-prettier": "3.1.2",
     "prettier": "1.19.1",
     "typescript": "^3.8.3",
-    "vsce": "1.71.0",
+    "vsce": "1.74.0",
     "vscode": "1.1.36"
   },
   "dependencies": {
-    "clipboardy": "2.2.0"
+    "clipboardy": "2.3.0"
   }
 }
