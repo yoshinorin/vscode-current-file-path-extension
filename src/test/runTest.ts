@@ -37,7 +37,7 @@ async function main() {
     setTimeout(() => {}, 3000);
 
     // legacy version test
-    vscodeExecutablePath = await downloadAndUnzipVSCode('1.30.0');
+    vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.0');
     try {
         await runTests({
             vscodeExecutablePath,
