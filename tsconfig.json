@@ -7,11 +7,15 @@
       "es6"
     ],
     "sourceMap": true,
-    "rootDir": "src",
+    "baseUrl": ".",
     "strict": true,
     "strictNullChecks": true,
     "noUnusedLocals": true
   },
+  "include": [
+    "src",
+    "test"
+  ],
   "exclude": [
     "node_modules",
     ".vscode-test"
