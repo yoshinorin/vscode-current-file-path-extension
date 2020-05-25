@@ -1,25 +1,7 @@
 import * as assert from 'assert';
 import * as path from 'path';
 import * as vscode from 'vscode';
-
-import { CurrentFile } from '../../currentFile';
 const clipboardy = require("clipboardy");
-
-suite('Untitled File - Test Suite', () => {
-    const currentFile = new CurrentFile();
-
-    test('Copy', async () => {
-        currentFile.copy();
-        assert.strictEqual(clipboardy.readSync(), 'Untitled-1');
-
-        currentFile.copyFileName();
-        assert.strictEqual(clipboardy.readSync(), 'Untitled-1');
-
-        currentFile.copyFileName();
-        assert.strictEqual(clipboardy.readSync(), 'Untitled-1');
-    });
-
-});
 
 suite('File copy in workspace - Test Suite', () => {
 
