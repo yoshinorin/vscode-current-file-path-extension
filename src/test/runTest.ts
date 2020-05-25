@@ -37,6 +37,9 @@ async function main() {
     setTimeout(() => {}, 3000);
 
     // legacy version test
+    // v1.18.0 -> NG: ENOENT error
+    // v1.30.0 -> NG: vscode process does not exit
+    // v1.35.0 -> NG: vscode process does not exit
     vscodeExecutablePath = await downloadAndUnzipVSCode('1.40.0');
     try {
         await runTests({
