@@ -111,7 +111,10 @@
     "watch": "tsc -watch -p ./",
     "format": "prettier --write \"./**/*.{ts,js}\"",
     "pretest": "npm run compile",
-    "test": " node ./out/test/runTest.js",
+    "test:specificVersion": " node ./out/test/runSpecificVersionTest.js",
+    "test:legacy": " node ./out/test/runLegacyTest.js",
+    "test:latest": " node ./out/test/runLatestTest.js",
+    "test": "npm run test:specificVersion && npm run test:latest && npm run test:legacy",
     "package": "vsce package ./node_modules/.bin/vsce package"
   },
   "devDependencies": {
