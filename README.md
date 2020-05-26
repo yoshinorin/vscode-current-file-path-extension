@@ -1,23 +1,23 @@
-# Current File Path
+# Current File Path for Visual Studio Code
 
 ![](https://img.shields.io/badge/Release-v2.0.0-blue.svg?style=flat-square)
 ![](https://img.shields.io/badge/vscode-^1.18.0-blue.svg?style=flat-square)
 ![CI](https://github.com/YoshinoriN/vscode-current-file-path-extension/workflows/CI/badge.svg?branch=ci%2Fgithub-actions)
 
-Visual Studio Code extension. This extension display current file's path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.
+Visual Studio Code extension. This extension displays a current file path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.
 
 ## Features
 
 * Display a current file's path in the StatusBar.
     * Absolute (root directory) or starts from workspace highest directory
-        * Can select which to use by settings.
-        * Can change shown using by QuickPick or command palette.
+        * You can select which to use by settings.
+        * You can change the path appearance with QuickPick or command palette.
     * Path separator style can choose Unix or Windows.
-        * Can select which to use by settings.
-        * Can change shown using by QuickPick or command palette.
+        * You can select which to use by settings.
+        * You can change it with QuickPick or command palette.
 * Copy a current file path to clipboard.
 * Copy a current file name to clipboard.
-* Can set display priority in the StatusBar by setting.
+* You can set a display priority in the StatusBar by setting.
 
 ## Images
 
