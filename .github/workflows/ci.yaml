@@ -17,6 +17,8 @@ jobs:
           node-version: '14.x'
       - name: Install Dependencies
         run: npm install
+      - name: Compile TypeScript
+        run: npm run compile
       - name: Run headless tests - specific version
         uses: GabrielBB/xvfb-action@v1.0
         with:
