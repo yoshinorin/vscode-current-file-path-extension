@@ -1,7 +1,38 @@
 import * as assert from 'assert';
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { CurrentFile } from '../../currentFile';
 const clipboardy = require("clipboardy");
+
+describe('Default config test', () => {
+
+    before(async () => {
+        const doc = await vscode.workspace.openTextDocument(path.resolve(__dirname, '../../../README.md'));
+        await vscode.window.showTextDocument(doc);
+    });
+
+    const config = vscode.workspace.getConfiguration('currentFilePath');
+    const currentFile = new CurrentFile();
+
+    it('defaultPathStyle setting is same with workSpace setting', async () => {
+        //@ts-ignore
+        // execute private method
+        assert.strictEqual(config.get('defaultPathStyle'), currentFile.config.defaultPathStyle);
+    });
+
+    it('priorityInStatusBar setting is same with workSpace setting', async () => {
+        //@ts-ignore
+        // execute private method
+        assert.strictEqual(config.get('priorityInStatusBar'), currentFile.config.priorityInStatusBar);
+    });
+
+    it('defaultPathStartsFrom setting is same with workSpace setting', async () => {
+        //@ts-ignore
+        // execute private method
+        assert.strictEqual(config.get('defaultPathStartsFrom'), currentFile.config.defaultPathStartsFrom);
+    });
+
+})
 
 describe('Copy features test', () => {
 
