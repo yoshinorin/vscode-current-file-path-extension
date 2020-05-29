@@ -41,7 +41,10 @@ export function activate(context: ExtensionContext) {
             () => {
                 currentFile.copyFileNameWithOutExtension();
             }
-        )
+        ),
+        commands.registerCommand("currentFilePath.openSettings", () => {
+            currentFile.openSettings();
+        })
     ];
 
     disposableCommands.forEach(command => {

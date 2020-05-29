@@ -15,7 +15,8 @@ export enum QuickPickerAction {
     viewFromWorkSpaceRoot,
     copy,
     copyFileName,
-    copyFileNameWithOutExtension
+    copyFileNameWithOutExtension,
+    openSettings
 }
 
 export class QuickPicker {
@@ -82,6 +83,12 @@ export class QuickPicker {
                 "Copy a current file name (without extension) to clipboard.",
             label: "COPY: FileName without extension"
         });
+
+        this._pickItems.push({
+            id: QuickPickerAction.openSettings,
+            label: "Settings: Open Extension Settings"
+        });
+
 
         let selectedAction = await window.showQuickPick(this._pickItems, {
             placeHolder: "Select"

@@ -102,6 +102,11 @@
         "command": "currentFilePath.copyFileNameWithOutExtension",
         "title": "Current File Path: Copy (FileName without extension)",
         "group": "current-file-path"
+      },
+      {
+        "command": "currentFilePath.openSettings",
+        "title": "Current File Path: Open Extension Settings",
+        "group": "current-file-path"
       }
     ]
   },

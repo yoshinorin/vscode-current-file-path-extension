@@ -1,6 +1,6 @@
 "use strict";
 
-import { StatusBarAlignment, StatusBarItem, window, workspace } from "vscode";
+import { commands, StatusBarAlignment, StatusBarItem, window, workspace } from "vscode";
 import { Config } from "./config";
 import { QuickPicker, QuickPickerAction } from "./quickPicker";
 import { PathStyles, PathStartsFrom } from "./utils/types";
@@ -186,6 +186,10 @@ export class CurrentFile {
         clipboardy.writeSync(this.name.slice(0, this.name.lastIndexOf(".")));
     }
 
+    public openSettings() {
+        commands.executeCommand('workbench.action.openSettings', '@ext:YoshinoriN.current-file-path');
+    }
+
     public executeQuickPickerAction() {
         this.quickPicker
             .getActionId(
@@ -215,6 +219,9 @@ export class CurrentFile {
                         return;
                     case QuickPickerAction.copyFileNameWithOutExtension:
                         this.copyFileNameWithOutExtension();
+                        return;
+                    case QuickPickerAction.openSettings:
+                        this.openSettings();
                         return;
                     default:
                         return;
