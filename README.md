@@ -43,6 +43,24 @@ Visual Studio Code extension. This extension displays a current file path from a
 
 ## Release Notes
 
+### v3.0.0
+---
+
+#### Breaking change
+
+* [6664105](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/66641059a8263cf4d9d70986b5f424d65b6d5f38): Bump min support VSCode version from `1.18.0` to `1.40.0`
+
+#### New features
+
+* [5811830](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/58118304a2a068b69fa544b3268bee578615f0fb): Add open extension settings
+
+#### Misc
+
+* [#144](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/144), [f56d3fde](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/f56d3fde4855902d8f54aefd4a10e4f62d8c90b7), [339b2400](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/339b240067e161b292da25160a4223278539a313): Add unit test
+* [#143](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/143): Add CI (GitHub Action)
+* Update some dependencies
+
+
 ### v2.0.0
 ---
 
