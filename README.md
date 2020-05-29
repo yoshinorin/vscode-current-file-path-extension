@@ -1,6 +1,6 @@
 # Current File Path for Visual Studio Code
 
-![](https://img.shields.io/badge/Release-v2.0.0-blue.svg?style=flat-square)
+![](https://img.shields.io/badge/Release-v3.0.0-blue.svg?style=flat-square)
 ![](https://img.shields.io/badge/vscode-^1.40.0-blue.svg?style=flat-square)
 ![CI](https://github.com/YoshinoriN/vscode-current-file-path-extension/workflows/CI/badge.svg?branch=master)
 
