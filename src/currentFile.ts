@@ -1,10 +1,10 @@
 "use strict";
 
-import { commands, StatusBarAlignment, StatusBarItem, window, workspace } from "vscode";
+import { commands, StatusBarAlignment, StatusBarItem, window, workspace, env } from "vscode";
 import { Config } from "./config";
 import { QuickPicker, QuickPickerAction } from "./quickPicker";
 import { PathStyles, PathStartsFrom } from "./utils/types";
-const clipboardy = require("clipboardy");
+const clipboard= env.clipboard;
 const pathModule = require("path");
 
 export class CurrentFile {
@@ -170,20 +170,20 @@ export class CurrentFile {
         this.updateStatusBar();
     }
 
-    public copy() {
+    public async copy() {
         if (this.currentPathStartsFrom === PathStartsFrom.ROOT_DIRECTORY) {
-            clipboardy.writeSync(this.startsFromRootDirectoryPath);
+            await clipboard.writeText(this.startsFromRootDirectoryPath);
             return;
         }
-        clipboardy.writeSync(this.startsFromWorkSpaceHighestDirectoryPath);
+        await clipboard.writeText(this.startsFromWorkSpaceHighestDirectoryPath);
     }
 
-    public copyFileName() {
-        clipboardy.writeSync(this.name);
+    public async copyFileName() {
+        await clipboard.writeText(this.name);
     }
 
-    public copyFileNameWithOutExtension() {
-        clipboardy.writeSync(this.name.slice(0, this.name.lastIndexOf(".")));
+    public async copyFileNameWithOutExtension() {
+        await clipboard.writeText(this.name.slice(0, this.name.lastIndexOf(".")));
     }
 
     public openSettings() {
