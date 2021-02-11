@@ -1,6 +1,6 @@
 # Current File Path for Visual Studio Code
 
-![](https://img.shields.io/badge/Release-v3.0.0-blue.svg?style=flat-square)
+![](https://img.shields.io/badge/Release-v3.1.0-blue.svg?style=flat-square)
 ![](https://img.shields.io/badge/vscode-^1.40.0-blue.svg?style=flat-square)
 ![GitHub Action](https://img.shields.io/github/workflow/status/YoshinoriN/vscode-current-file-path-extension/CI/master?label=GitHub%20Action)
 
@@ -17,6 +17,8 @@ Visual Studio Code extension. This extension displays a current file path from a
         * You can change it with QuickPick or command palette.
 * Copy a current file path to clipboard.
 * Copy a current file name to clipboard.
+* Support copy feature on the remote-host.
+    * e.g. Remote-WSL, Remote-Linux
 * You can set a display priority in the StatusBar by setting.
 
 ## Images
@@ -43,6 +45,19 @@ Visual Studio Code extension. This extension displays a current file path from a
 
 ## Release Notes
 
+### v3.1.0
+---
+
+#### New features
+
+* (refs [#151](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/151)): Support copy feature on the remote-host [@dlguswo333](https://github.com/dlguswo333)
+    * e.g. Remote-WSL, Remote-Linux
+    * replace `clipboardy` with `vscode.env.clipboard`
+
+#### Misc
+
+* [f735692](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/f735692fd2ae51f8c317664716c86a731e501b41): update some devDependencies
+
 ### v3.0.0
 ---
 
@@ -56,8 +71,8 @@ Visual Studio Code extension. This extension displays a current file path from a
 
 #### Misc
 
-* [#144](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/144), [f56d3fde](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/f56d3fde4855902d8f54aefd4a10e4f62d8c90b7), [339b2400](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/339b240067e161b292da25160a4223278539a313): Add unit test
-* [#143](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/143): Add CI (GitHub Action)
+* (refs [#144](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/144)), [f56d3fde](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/f56d3fde4855902d8f54aefd4a10e4f62d8c90b7), [339b2400](https://github.com/YoshinoriN/vscode-current-file-path-extension/commit/339b240067e161b292da25160a4223278539a313): Add unit test
+* (refs [#143](https://github.com/YoshinoriN/vscode-current-file-path-extension/pull/143)): Add CI (GitHub Action)
 * Update some dependencies
 
 
