@@ -3,13 +3,13 @@
   "displayName": "Current File Path",
   "description": "Display current file's path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.",
   "version": "3.1.0",
-  "publisher": "YoshinoriN",
+  "publisher": "yoshinorin",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YoshinoriN/vscode-current-file-path-extension"
+    "url": "https://github.com/yoshinorin/vscode-current-file-path-extension"
   },
   "bugs": {
-    "url": "https://github.com/YoshinoriN/vscode-current-file-path-extension/issues"
+    "url": "https://github.com/yoshinorin/vscode-current-file-path-extension/issues"
   },
   "license": "MIT",
   "engines": {

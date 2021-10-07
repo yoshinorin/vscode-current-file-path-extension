@@ -187,7 +187,7 @@ export class CurrentFile {
     }
 
     public openSettings() {
-        commands.executeCommand('workbench.action.openSettings', '@ext:YoshinoriN.current-file-path');
+        commands.executeCommand('workbench.action.openSettings', '@ext:yoshinorin.current-file-path');
     }
 
     public executeQuickPickerAction() {
