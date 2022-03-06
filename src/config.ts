@@ -27,6 +27,7 @@ export class Config {
             this._priorityInStatusBar = this._config.priorityInStatusBar;
             this._defaultPathStartsFrom = this._config.defaultPathStartsFrom;
         } catch (ex) {
+            // @ts-ignore
             window.showErrorMessage(ex.message);
         }
     }
