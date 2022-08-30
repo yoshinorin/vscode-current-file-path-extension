@@ -1,142 +1,148 @@
 {
-  "name": "current-file-path",
-  "displayName": "Current File Path",
-  "description": "Display current file's path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.",
-  "version": "3.1.0",
-  "publisher": "yoshinorin",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yoshinorin/vscode-current-file-path-extension"
-  },
-  "bugs": {
-    "url": "https://github.com/yoshinorin/vscode-current-file-path-extension/issues"
-  },
-  "license": "MIT",
-  "engines": {
-    "node": ">=12",
-    "npm": ">=7",
-    "vscode": "^1.40.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "keywords": [
-    "copy",
-    "file",
-    "path"
-  ],
-  "icon": "images/icon.png",
-  "activationEvents": [
-    "*"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Current File Path extention configurations",
-      "properties": {
-        "currentFilePath.defaultPathStyle": {
-          "type": "string",
-          "default": "unix",
-          "enum": [
-            "unix",
-            "windows"
-          ],
-          "description": "Specify default path style. Unix like or Windows like.",
-          "scope": "window"
-        },
-        "currentFilePath.priorityInStatusBar": {
-          "type": "number",
-          "default": 0,
-          "description": "The priority in the statusBar. Higher values shown more to the left.",
-          "scope": "window"
-        },
-        "currentFilePath.defaultPathStartsFrom": {
-          "type": "string",
-          "default": "rootDirectory",
-          "enum": [
-            "rootDirectory",
-            "workSpace"
-          ],
-          "description": "Default value of where the path is displayed starts from. Root directory or workspace highest directory.",
-          "scope": "window"
-        }
-      }
-    },
-    "commands": [
-      {
-        "command": "currentFilePath.executeQuickPickerAction",
-        "title": "Current File Path: Open Menus",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.viewUnixStyle",
-        "title": "Current File Path: UNIX style",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.viewWindowsStyle",
-        "title": "Current File Path: Windows style",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.viewFromSystemRoot",
-        "title": "Current File Path: Absolute path",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.viewFromWorkSpaceRoot",
-        "title": "Current File Path: From workspace root path",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.copy",
-        "title": "Current File Path: Copy (Path)",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.copyFileName",
-        "title": "Current File Path: Copy (FileName)",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.copyFileNameWithOutExtension",
-        "title": "Current File Path: Copy (FileName without extension)",
-        "group": "current-file-path"
-      },
-      {
-        "command": "currentFilePath.openSettings",
-        "title": "Current File Path: Open Extension Settings",
-        "group": "current-file-path"
-      }
-    ]
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "format": "prettier --write \"./**/*.{ts,js}\"",
-    "pretest": "npm run compile",
-    "test:specificVersion": " node ./out/test/runSpecificVersionTest.js",
-    "test:legacy": " node ./out/test/runLegacyTest.js",
-    "test:latest": " node ./out/test/runLatestTest.js",
-    "test": "npm run test:specificVersion && npm run test:latest && npm run test:legacy",
-    "package": "vsce package ./node_modules/.bin/vsce package"
-  },
-  "devDependencies": {
-    "@types/glob": "7.2.0",
-    "@types/mocha": "9.1.1",
-    "@types/node": "18.7.4",
-    "@types/vscode": "1.40.0",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "eslint": "8.23.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "glob": "8.0.3",
-    "mocha": "10.0.0",
-    "prettier": "2.7.1",
-    "typescript": "4.8.2",
-    "vsce": "1.75.0",
-    "vscode-test": "1.3.0"
-  }
+	"name": "current-file-path",
+	"displayName": "Current File Path",
+	"description": "Display current file's path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.",
+	"version": "3.1.0",
+	"publisher": "yoshinorin",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/yoshinorin/vscode-current-file-path-extension"
+	},
+	"bugs": {
+		"url": "https://github.com/yoshinorin/vscode-current-file-path-extension/issues"
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=12",
+		"npm": ">=7",
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"copy",
+		"file",
+		"path"
+	],
+	"icon": "images/icon.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Current File Path extention configurations",
+			"properties": {
+				"currentFilePath.defaultPathStyle": {
+					"type": "string",
+					"default": "unix",
+					"enum": [
+						"unix",
+						"windows"
+					],
+					"description": "Specify default path style. Unix like or Windows like.",
+					"scope": "window"
+				},
+				"currentFilePath.priorityInStatusBar": {
+					"type": "number",
+					"default": 0,
+					"description": "The priority in the statusBar. Higher values shown more to the left.",
+					"scope": "window"
+				},
+				"currentFilePath.defaultPathStartsFrom": {
+					"type": "string",
+					"default": "rootDirectory",
+					"enum": [
+						"rootDirectory",
+						"workSpace"
+					],
+					"description": "Default value of where the path is displayed starts from. Root directory or workspace highest directory.",
+					"scope": "window"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "currentFilePath.executeQuickPickerAction",
+				"title": "Current File Path: Open Menus",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.viewUnixStyle",
+				"title": "Current File Path: UNIX style",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.viewWindowsStyle",
+				"title": "Current File Path: Windows style",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.viewFromSystemRoot",
+				"title": "Current File Path: Absolute path",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.viewFromWorkSpaceRoot",
+				"title": "Current File Path: From workspace root path",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.copy",
+				"title": "Current File Path: Copy (Path)",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.copyFileName",
+				"title": "Current File Path: Copy (FileName)",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.copyFileNameWithOutExtension",
+				"title": "Current File Path: Copy (FileName without extension)",
+				"group": "current-file-path"
+			},
+			{
+				"command": "currentFilePath.openSettings",
+				"title": "Current File Path: Open Extension Settings",
+				"group": "current-file-path"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"format": "prettier --write \"./**/*.{ts,js}\"",
+		"pretest": "npm run compile",
+		"test:specificVersion": " node ./out/test/runSpecificVersionTest.js",
+		"test:legacy": " node ./out/test/runLegacyTest.js",
+		"test:latest": " node ./out/test/runLatestTest.js",
+		"test": "npm run test:specificVersion && npm run test:latest && npm run test:legacy",
+		"package": "vsce package ./node_modules/.bin/vsce package"
+	},
+	"devDependencies": {
+		"@types/glob": "7.2.0",
+		"@types/mocha": "9.1.1",
+		"@types/node": "18.7.4",
+		"@types/vscode": "1.70.0",
+		"@typescript-eslint/eslint-plugin": "5.36.1",
+		"eslint": "8.23.0",
+		"eslint-config-prettier": "8.5.0",
+		"eslint-plugin-prettier": "4.2.1",
+		"glob": "8.0.3",
+		"mocha": "10.0.0",
+		"prettier": "2.7.1",
+		"typescript": "4.8.2",
+		"vsce": "2.11.0",
+		"vscode-test": "1.6.1"
+	},
+	"__metadata": {
+		"id": "ceb1d4ae-8b8e-4f60-bb3a-3a3710b3dc0f",
+		"publisherDisplayName": "yoshinorin",
+		"publisherId": "3d54fa26-24ac-4aa9-ba58-7ba481e515fc",
+		"isPreReleaseVersion": false
+	}
 }
