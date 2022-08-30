@@ -13,8 +13,8 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12",
-    "npm": ">=7",
+    "node": ">=14",
+    "npm": ">=8",
     "vscode": "^1.40.0"
   },
   "categories": [
