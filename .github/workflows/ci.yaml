@@ -15,6 +15,8 @@ jobs:
         uses: actions/setup-node@v3
       - name: Install Dependencies
         run: npm install
+      - name: Lint
+        run: npm run lint
       - name: Compile TypeScript
         run: npm run compile
       - name: Run headless tests - specific version

@@ -112,11 +112,11 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "npm run lint && npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "format": "prettier --write \"./**/*.{ts,js}\"",
     "pretest": "npm run compile",
+    "lint": "eslint . ./src/**/*.ts",
     "test:specificVersion": " node ./out/test/runSpecificVersionTest.js",
     "test:latest": " node ./out/test/runLatestTest.js",
     "test": "npm run test:specificVersion && npm run test:latest",
@@ -129,11 +129,9 @@
     "@types/vscode": "1.77.0",
     "@typescript-eslint/eslint-plugin": "5.59.1",
     "eslint": "8.29.0",
-    "eslint-config-prettier": "8.8.0",
-    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-mocha": "^10.1.0",
     "glob": "8.0.3",
     "mocha": "10.2.0",
-    "prettier": "2.8.8",
     "typescript": "5.0.4",
     "vsce": "2.15.0",
     "vscode-test": "1.6.1"
