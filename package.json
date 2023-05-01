@@ -120,7 +120,7 @@
     "test:minSupportVersion": " node ./out/test/runMinSupportVersionTest.js",
     "test:latest": " node ./out/test/runLatestTest.js",
     "test": "npm run test:minSupportVersion && npm run test:latest",
-    "package": "vsce package ./node_modules/.bin/vsce package"
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "7.2.0",
@@ -128,12 +128,12 @@
     "@types/node": "18.16.3",
     "@types/vscode": "1.77.0",
     "@typescript-eslint/eslint-plugin": "5.59.1",
+    "@vscode/vsce": "2.19.0",
     "eslint": "8.29.0",
     "eslint-plugin-mocha": "10.1.0",
     "glob": "8.0.3",
     "mocha": "10.2.0",
-    "typescript": "5.0.4",
-    "vsce": "2.15.0"
+    "typescript": "5.0.4"
   },
   "dependencies": {
     "@vscode/test-electron": "2.3.0"
