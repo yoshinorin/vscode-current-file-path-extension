@@ -1,7 +1,7 @@
 import * as path from 'path';
 import {
     runTests
-} from 'vscode-test';
+} from '@vscode/test-electron';
 
 async function main() {
     const extensionDevelopmentPath = path.resolve(__dirname, '../../');
