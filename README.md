@@ -39,7 +39,7 @@ Visual Studio Code extension. This extension displays a current file path from a
 
 ## Requirements
 
-* Visual Studio Code 1.40.0 later
+* Visual Studio Code 1.70.0 later
 * Linux will probably have to install [xsel](https://linux.die.net/man/1/xsel).
     * e.g.) Debian/Ubuntu `sudo apt install xsel`
 
