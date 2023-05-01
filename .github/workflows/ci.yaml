@@ -22,7 +22,7 @@ jobs:
       - name: Run headless tests - specific version
         uses: coactions/setup-xvfb@v1
         with:
-          run: npm run test:specificVersion
+          run: npm run test:minSupportVersion
       - name: Run headless tests - latest version
         uses: coactions/setup-xvfb@v1
         with:

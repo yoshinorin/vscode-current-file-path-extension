@@ -117,9 +117,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
     "lint": "eslint . ./src/**/*.ts",
-    "test:specificVersion": " node ./out/test/runSpecificVersionTest.js",
+    "test:minSupportVersion": " node ./out/test/runMinSupportVersionTest.js",
     "test:latest": " node ./out/test/runLatestTest.js",
-    "test": "npm run test:specificVersion && npm run test:latest",
+    "test": "npm run test:minSupportVersion && npm run test:latest",
     "package": "vsce package ./node_modules/.bin/vsce package"
   },
   "devDependencies": {
