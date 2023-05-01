@@ -138,11 +138,5 @@
     "typescript": "4.8.2",
     "vsce": "2.11.0",
     "vscode-test": "1.6.1"
-  },
-  "__metadata": {
-    "id": "ceb1d4ae-8b8e-4f60-bb3a-3a3710b3dc0f",
-    "publisherDisplayName": "yoshinorin",
-    "publisherId": "3d54fa26-24ac-4aa9-ba58-7ba481e515fc",
-    "isPreReleaseVersion": false
   }
 }
