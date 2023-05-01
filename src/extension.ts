@@ -54,4 +54,6 @@ export function activate(context: ExtensionContext) {
     context.subscriptions.push(currentFile);
 }
 
-export function deactivate() {}
+export function deactivate() {
+    // Nothing to do
+}

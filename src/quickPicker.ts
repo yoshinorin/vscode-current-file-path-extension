@@ -22,7 +22,9 @@ export enum QuickPickerAction {
 export class QuickPicker {
     private _pickItems: MenuQuickPickItem[] = [];
 
-    constructor() {}
+    constructor() {
+        // Nothing to do
+    }
 
     public async getActionId(
         currentStyle: string,
