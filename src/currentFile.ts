@@ -4,8 +4,9 @@ import { commands, StatusBarAlignment, StatusBarItem, window, workspace, env } f
 import { Config } from "./config";
 import { QuickPicker, QuickPickerAction } from "./quickPicker";
 import { PathStyles, PathStartsFrom } from "./utils/types";
+import { join } from 'path';
 const clipboard= env.clipboard;
-const pathModule = require("path");
+
 
 export class CurrentFile {
     private readonly _config: Config;
@@ -86,7 +87,7 @@ export class CurrentFile {
             this._startsFromWorkSpaceHighestDirectoryPath = path;
             return;
         }
-        this._startsFromWorkSpaceHighestDirectoryPath = pathModule.join(
+        this._startsFromWorkSpaceHighestDirectoryPath = join(
             rootFolderObj.name,
             this.toUnixStyle(path).replace(
                 this.toUnixStyle(rootFolderObj.uri.fsPath),
