@@ -1,5 +1,3 @@
-"use strict";
-
 import { CurrentFile } from "./currentFile";
 import { Disposable, window } from "vscode";
 

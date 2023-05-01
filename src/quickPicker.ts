@@ -1,5 +1,3 @@
-"use strict";
-
 import { QuickPickItem, window } from "vscode";
 import { PathStyles, PathStartsFrom } from "./utils/types";
 

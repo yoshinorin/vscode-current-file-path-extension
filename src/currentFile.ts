@@ -1,5 +1,3 @@
-"use strict";
-
 import { commands, StatusBarAlignment, StatusBarItem, window, workspace, env } from "vscode";
 import { Config } from "./config";
 import { QuickPicker, QuickPickerAction } from "./quickPicker";

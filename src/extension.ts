@@ -1,5 +1,3 @@
-"use strict";
-
 import { ExtensionContext, commands } from "vscode";
 import { CurrentFile } from "./currentFile";
 import { EditorChangeListner } from "./editorChangeListner";
