@@ -4,7 +4,7 @@ import { commands, StatusBarAlignment, StatusBarItem, window, workspace, env } f
 import { Config } from "./config";
 import { QuickPicker, QuickPickerAction } from "./quickPicker";
 import { PathStyles, PathStartsFrom } from "./utils/types";
-import { join } from 'path';
+import { join, basename } from 'path';
 const clipboard= env.clipboard;
 
 
@@ -145,7 +145,7 @@ export class CurrentFile {
         this.startsFromRootDirectoryPath = editor.document.uri.fsPath;
         this.startsFromWorkSpaceHighestDirectoryPath =
             editor.document.uri.fsPath;
-        this.name = pathModule.basename(editor.document.uri.fsPath);
+        this.name = basename(editor.document.uri.fsPath);
 
         this.updateStatusBar();
         this.statusBarItem.show();
