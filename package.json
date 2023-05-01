@@ -129,19 +129,13 @@
     "@types/vscode": "1.77.0",
     "@typescript-eslint/eslint-plugin": "5.59.1",
     "eslint": "8.29.0",
-    "eslint-plugin-mocha": "^10.1.0",
+    "eslint-plugin-mocha": "10.1.0",
     "glob": "8.0.3",
     "mocha": "10.2.0",
     "typescript": "5.0.4",
     "vsce": "2.15.0"
   },
   "dependencies": {
-    "@vscode/test-electron": "^2.3.0"
-  },
-  "__metadata": {
-    "id": "ceb1d4ae-8b8e-4f60-bb3a-3a3710b3dc0f",
-    "publisherDisplayName": "yoshinorin",
-    "publisherId": "3d54fa26-24ac-4aa9-ba58-7ba481e515fc",
-    "isPreReleaseVersion": false
+    "@vscode/test-electron": "2.3.0"
   }
 }
