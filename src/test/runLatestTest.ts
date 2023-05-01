@@ -7,12 +7,18 @@ async function main() {
     const extensionDevelopmentPath = path.resolve(__dirname, '../../');
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
+    // https://github.com/microsoft/vscode/issues/86382
+    const tmpDir = path.resolve(__dirname, '..', '../testTmp');
+
     // latest version test
     try {
         await runTests({
             extensionDevelopmentPath,
             extensionTestsPath,
-            launchArgs: ['--disable-extensions']
+            launchArgs: [
+                '--user-data-dir', tmpDir,
+                '--disable-extensions',
+            ]
         });
     } catch (err) {
         console.log(err);
