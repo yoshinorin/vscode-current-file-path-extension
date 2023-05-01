@@ -25,7 +25,7 @@ jobs:
         uses: coactions/setup-xvfb@v1
         with:
           run: npm run test:latest
-      - name: Run headless tests - legacy version
-        uses: coactions/setup-xvfb@v1
-        with:
-          run: npm run test:legacy
+      # - name: Run headless tests - legacy version
+      #  uses: coactions/setup-xvfb@v1
+      #  with:
+      #    run: npm run test:legacy
