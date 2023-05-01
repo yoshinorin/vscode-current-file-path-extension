@@ -30,7 +30,7 @@ export class QuickPicker {
         currentStyle: string,
         isWorkSpace: boolean,
         pathStartsFrom: string
-    ): Promise<Number> {
+    ): Promise<number> {
         this._pickItems = [];
 
         if (currentStyle === PathStyles.UNIX) {
