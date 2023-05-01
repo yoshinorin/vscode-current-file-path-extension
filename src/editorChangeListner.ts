@@ -14,7 +14,7 @@ export class EditorChangeListner {
     constructor(currentFile: CurrentFile) {
         this._currentFile = currentFile;
 
-        let subscriptions: Disposable[] = [];
+        const subscriptions: Disposable[] = [];
         window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
         this._disposable = Disposable.from(...subscriptions);
     }

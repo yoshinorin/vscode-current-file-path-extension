@@ -90,7 +90,7 @@ export class QuickPicker {
         });
 
 
-        let selectedAction = await window.showQuickPick(this._pickItems, {
+        const selectedAction = await window.showQuickPick(this._pickItems, {
             placeHolder: "Select"
         });
 

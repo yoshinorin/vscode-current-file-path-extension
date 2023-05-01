@@ -72,12 +72,12 @@ export class CurrentFile {
         );
     }
     private set startsFromWorkSpaceHighestDirectoryPath(path: string) {
-        let folders = workspace.workspaceFolders;
+        const folders = workspace.workspaceFolders;
         if (folders === undefined) {
             this._startsFromWorkSpaceHighestDirectoryPath = path;
             return;
         }
-        let rootFolderObj = folders.find(x => {
+        const rootFolderObj = folders.find(x => {
             return this.toUnixStyle(path).startsWith(
                 this.toUnixStyle(x.uri.fsPath)
             );
@@ -135,7 +135,7 @@ export class CurrentFile {
     }
 
     public update() {
-        let editor = window.activeTextEditor;
+        const editor = window.activeTextEditor;
         if (!editor) {
             this.statusBarItem.hide();
             return;

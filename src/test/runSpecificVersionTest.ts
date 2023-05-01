@@ -9,7 +9,7 @@ async function main() {
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
     // v1.45.0 test
-    let vscodeExecutablePath = await downloadAndUnzipVSCode('1.45.0');
+    const vscodeExecutablePath = await downloadAndUnzipVSCode('1.45.0');
     try {
         await runTests({
             vscodeExecutablePath,

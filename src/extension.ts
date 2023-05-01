@@ -5,10 +5,10 @@ import { CurrentFile } from "./currentFile";
 import { EditorChangeListner } from "./editorChangeListner";
 
 export function activate(context: ExtensionContext) {
-    let currentFile = new CurrentFile();
-    let listner = new EditorChangeListner(currentFile);
+    const currentFile = new CurrentFile();
+    const listner = new EditorChangeListner(currentFile);
 
-    let disposableCommands = [
+    const disposableCommands = [
         commands.registerCommand(
             "currentFilePath.executeQuickPickerAction",
             () => {
