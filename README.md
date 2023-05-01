@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Release-v3.1.0-blue.svg?style=flat-square)
 ![](https://img.shields.io/badge/vscode-^1.40.0-blue.svg?style=flat-square)
-![GitHub Action](https://img.shields.io/github/workflow/status/yoshinorin/vscode-current-file-path-extension/CI/master?label=GitHub%20Action)
+[![CI](https://github.com/yoshinorin/vscode-current-file-path-extension/actions/workflows/ci.yaml/badge.svg)](https://github.com/yoshinorin/vscode-current-file-path-extension/actions/workflows/ci.yaml)
 
 Visual Studio Code extension. This extension displays a current file path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.
 
