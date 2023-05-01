@@ -18,14 +18,14 @@ jobs:
       - name: Compile TypeScript
         run: npm run compile
       - name: Run headless tests - specific version
-        uses: GabrielBB/xvfb-action@v1.0
+        uses: coactions/setup-xvfb@v1
         with:
           run: npm run test:specificVersion
       - name: Run headless tests - latest version
-        uses: GabrielBB/xvfb-action@v1.0
+        uses: coactions/setup-xvfb@v1
         with:
           run: npm run test:latest
       - name: Run headless tests - legacy version
-        uses: GabrielBB/xvfb-action@v1.0
+        uses: coactions/setup-xvfb@v1
         with:
           run: npm run test:legacy
