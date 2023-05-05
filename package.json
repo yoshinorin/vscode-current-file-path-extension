@@ -112,7 +112,7 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run lint && npm run compile",
+    "vscode:prepublish": "npm install && npm run lint && npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
@@ -120,6 +120,7 @@
     "test:minSupportVersion": " node ./out/test/runMinSupportVersionTest.js",
     "test:latest": " node ./out/test/runLatestTest.js",
     "test": "npm run test:minSupportVersion && npm run test:latest",
+    "prepackage": "npm install && npm run lint && npm run compile",
     "package": "vsce package"
   },
   "devDependencies": {
