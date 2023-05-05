@@ -2,7 +2,7 @@
   "name": "current-file-path",
   "displayName": "Current File Path",
   "description": "Display current file's path from absolute (root directory) or workspace highest directory in StatusBar by Unix style or Windows style.",
-  "version": "3.1.0",
+  "version": "4.0.0",
   "publisher": "yoshinorin",
   "repository": {
     "type": "git",

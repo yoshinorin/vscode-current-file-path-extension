@@ -1,5 +1,54 @@
 # Change Log
 
+## v4.0.0 - 2023-05-05
+
+### Breaking Changes
+
+* Require VSCode 1.70+
+  * [7eed663](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/7eed663) chore: require 1.70+ follow-up 1db4c3567c42a303dd6f306b796cf6b23523c3dc
+  * [1db4c35](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/1db4c35) chore: require v1.70.0+
+
+### Othres
+
+Refactor & Cleanups. Nothing, new features, bug fixes.
+
+* [430827f](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/430827f) docs: delete release details in `README`
+* [0098057](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/0098057) chore(deps): `@vscode/test-electron` move from `dependencies` to `devDependencies`
+* [858764d](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/858764d) refactor: use `@vscode/vsce` instead of `vsce`
+* [8f092f2](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/8f092f2) chore(deps): fixed package versions
+* [aa551bd](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/aa551bd) refactor: delete `use strict`
+* [5852060](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/5852060) chore: reformat `package.json`
+* [bf1476c](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/bf1476c) test: workaround for MacOS test issue
+* [c33cd06](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/c33cd06) test: use `@vscode/test-electron` instead of `vscode-test`
+* [065901b](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/065901b) test: put stacktrace when test failed
+* [05978c4](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/05978c4) test: rename test file and its task
+* [ecebcc5](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/ecebcc5) fix: error change in a2c92cb18f93459e61e2fc40dc4101637cb1195e
+* [305908d](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/305908d) refactor: clean up `eslint` and `prettier`
+* [a2c92cb](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/a2c92cb) refactor: `requrie` to `import`
+* [9e60d4b](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/9e60d4b) refactor: use `number` instead of `Number`
+* [7693cba](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/7693cba) refactor: explicity nothing todo
+* [16f3399](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/16f3399) refactor: use `const` instead of `let`
+* [448fb65](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/448fb65) test: drop regacy legacy version test
+* [d26c95d](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/d26c95d) chore(ci): migrate GitHub Actions
+* [f4e2156](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/f4e2156) chore(deps): update devDependencies
+* [5ce42f5](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/5ce42f5) docs: update badge
+* [d7aaa10](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/d7aaa10) chore(ci): add node.js 18.x matrix buil
+* [e04664d](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/e04664d) chore(ci): update GitHub Actions
+* [f4855e3](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/f4855e3) chore: delete `__metadata` from `package.json`
+* [8e6adf4](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/8e6adf4) require: node.js 16+
+* [7d6ddff](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/7d6ddff) chore: require `npm8+` & `node14+`
+* [138edd3](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/138edd3) chore: tab to space
+* [c83ca68](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/c83ca68) chore(deps): update dependencies for vscode
+* [b102121](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/b102121) chore(deps): update dependencies
+* [a02e5c0](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/a02e5c0) chore: update .vscodeignore
+* [f5a2ba2](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/f5a2ba2) chore: ts-ignore
+* [bd299fb](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/bd299fb) chore(deps): update dependencies
+* [9069e35](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/9069e35) chore: require npm +7
+* [e93f9c5](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/e93f9c5) chore: update LICENSE year
+* [8d923d0](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/8d923d0) chore: uppercase to lowercase
+* [9e09082](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/9e09082) chore(deps): update some devDependencies
+* [454a150](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/454a150) chore: bump engine from node 10.x to 12.x
+
 ## v3.1.0 - 2021-02-11
 
 ### New features
