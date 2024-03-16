@@ -1,5 +1,26 @@
 # Change Log
 
+## v4.1.0 - 2024-03-16
+
+### Perf
+
+* [b301697](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/b301697) refactor: use `onStartupFinished` for activate extention event
+
+### Others
+
+* [097d8b9](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/097d8b9) docs: update LICENSE year
+* [03db2f9](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/03db2f9) docs: update images
+* [eb18992](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/eb18992) chore: require `npm+10`
+* [80f41f6](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/80f41f6) chore: require `node+20`
+* [3d5ffbb](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/3d5ffbb) chore: replace `tab` to `space2` in `package.json`
+* [88fe063](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/88fe063) ci: update actions
+* [ee4e074](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/ee4e074) chore(deps): bump `@vscode/vsce` and `@vscode/test-electron`
+* [9048839](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/9048839) ci: ignore `fail-fast`
+* [a400bc5](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/a400bc5) chore: delete unnecessary file
+* [691f3de](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/691f3de) test: change `mocha` default timeout
+* [fd9a8e1](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/fd9a8e1) chore(deps): update dependencies
+* [23a31c9](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/23a31c9) chore(deps): bump `blob` from `8.0.3` to `10.3.10`
+
 ## v4.0.0 - 2023-05-05
 
 ### Breaking Changes
