@@ -116,7 +116,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
-    "lint": "eslint . ./src/**/*.ts",
+    "lint": "biome lint --write ./src",
+    "fmt": "biome format --write ./src",
     "test:minSupportVersion": " node ./out/test/runMinSupportVersionTest.js",
     "test:latest": " node ./out/test/runLatestTest.js",
     "test": "npm run test:minSupportVersion && npm run test:latest",
@@ -124,14 +125,12 @@
     "package": "vsce package"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.9.4",
     "@types/mocha": "10.0.1",
     "@types/node": "20.11.28",
     "@types/vscode": "1.70.0",
-    "@typescript-eslint/eslint-plugin": "7.2.0",
     "@vscode/test-electron": "2.3.9",
     "@vscode/vsce": "2.24.0",
-    "eslint": "8.57.0",
-    "eslint-plugin-mocha": "10.1.0",
     "glob": "10.3.10",
     "mocha": "10.2.0",
     "typescript": "5.4.2"
