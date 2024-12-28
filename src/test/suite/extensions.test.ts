@@ -20,6 +20,7 @@ describe("Default config test", () => {
     // execute private method
     assert.strictEqual(
       config.get("defaultPathStyle"),
+      //@ts-ignore
       currentFile.config.defaultPathStyle,
     );
   });
@@ -29,6 +30,7 @@ describe("Default config test", () => {
     // execute private method
     assert.strictEqual(
       config.get("priorityInStatusBar"),
+      //@ts-ignore
       currentFile.config.priorityInStatusBar,
     );
   });
@@ -38,6 +40,7 @@ describe("Default config test", () => {
     // execute private method
     assert.strictEqual(
       config.get("defaultPathStartsFrom"),
+      //@ts-ignore
       currentFile.config.defaultPathStartsFrom,
     );
   });
