@@ -126,14 +126,14 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/mocha": "10.0.1",
-    "@types/node": "20.11.28",
-    "@types/vscode": "1.70.0",
-    "@vscode/test-electron": "2.3.9",
-    "@vscode/vsce": "2.24.0",
-    "glob": "10.3.10",
-    "mocha": "10.2.0",
-    "typescript": "5.4.2"
+    "@types/mocha": "10.0.10",
+    "@types/node": "22.14.0",
+    "@types/vscode": "1.98.0",
+    "@vscode/test-electron": "2.4.1",
+    "@vscode/vsce": "3.3.2",
+    "glob": "11.0.1",
+    "mocha": "11.1.0",
+    "typescript": "5.8.2"
   },
   "__metadata": {
     "id": "ceb1d4ae-8b8e-4f60-bb3a-3a3710b3dc0f",
