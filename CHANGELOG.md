@@ -1,5 +1,15 @@
 # Change Log
 
+## v5.0.0 - 2025-07-30
+
+### Breaking Changes
+
+* [533e32e](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/533e32e9d6f014344dcb5036949044db2c937c1a) Require VSCode 1.102.0+
+
+### Othres
+
+* [63765a5](https://github.com/yoshinorin/vscode-current-file-path-extension/commit/63765a52f6d06f3618487dfbb86838217be8b5c5) reduce package size
+
 ## v4.1.0 - 2024-03-16
 
 ### Perf
