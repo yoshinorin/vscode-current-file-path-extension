@@ -8,8 +8,8 @@ async function main() {
   // https://github.com/microsoft/vscode/issues/86382
   const tmpDir = path.resolve(__dirname, "..", "../testTmp");
 
-  // v1.70.0 test
-  const vscodeExecutablePath = await downloadAndUnzipVSCode("1.70.0");
+  // v1.102.0 test
+  const vscodeExecutablePath = await downloadAndUnzipVSCode("1.102.0");
   try {
     await runTests({
       vscodeExecutablePath,
