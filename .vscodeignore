@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 out/test/**
+out/testTmp/**
 out/**/*.map
 src/**
 .gitignore
@@ -11,5 +12,7 @@ tslint.json
 images/icon.svg
 images/image.gif
 images/original_image.gif
+images/command-palette.png
 .github
 testTmp/**
+biome.json
