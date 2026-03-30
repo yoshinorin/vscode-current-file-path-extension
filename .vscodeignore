@@ -16,3 +16,5 @@ images/command-palette.png
 .github
 testTmp/**
 biome.json
+AGENTS.md
+.claude/**
