@@ -133,7 +133,7 @@
     "@vscode/vsce": "3.7.1",
     "glob": "13.0.6",
     "mocha": "11.7.5",
-    "typescript": "5.8.2"
+    "typescript": "6.0.2"
   },
   "__metadata": {
     "id": "ceb1d4ae-8b8e-4f60-bb3a-3a3710b3dc0f",
