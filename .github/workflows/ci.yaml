@@ -14,19 +14,19 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
         node-version: ['22.x']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f #v6.3.0
       - name: Install Dependencies
         run: npm install
       - name: Compile TypeScript
         run: npm run compile
       - name: Run headless tests - specific version
-        uses: coactions/setup-xvfb@v1
+        uses: coactions/setup-xvfb@b6b4fcfb9f5a895edadc3bc76318fae0ac17c8b3 #v1.0.1
         with:
           run: npm run test:minSupportVersion
       - name: Run headless tests - latest version
-        uses: coactions/setup-xvfb@v1
+        uses: coactions/setup-xvfb@b6b4fcfb9f5a895edadc3bc76318fae0ac17c8b3 #v1.0.1
         with:
           run: npm run test:latest
       # - name: Run headless tests - legacy version
