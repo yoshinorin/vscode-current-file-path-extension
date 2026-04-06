@@ -14,7 +14,7 @@
   "license": "MIT",
   "engines": {
     "node": ">=24",
-    "npm": ">=10",
+    "npm": ">=11.11.0",
     "vscode": "^1.102.0"
   },
   "categories": [
