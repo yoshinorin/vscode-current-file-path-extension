@@ -84,6 +84,12 @@
   "javascript": { "formatter": { "quoteStyle": "double" } },
   "overrides": [
     {
+      "includes": ["**/test/**"],
+      "javascript": {
+        "globals": ["describe", "it", "before", "after", "beforeEach", "afterEach"]
+      }
+    },
+    {
       "includes": ["**/*.ts"],
       "linter": {
         "rules": {
